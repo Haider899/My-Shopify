@@ -1,0 +1,50 @@
+<section class="lb-404">
+  <div class="lb-container">
+    <div class="lb-404__content">
+      <span class="lb-404__code">404</span>
+      <h1 class="lb-heading lb-404__title">{{ section.settings.title | default: 'Page Not Found' }}</h1>
+      <p class="lb-text lb-404__text">{{ section.settings.text | default: "We couldn't find the page you're looking for. It may have been moved or no longer exists." }}</p>
+      <div class="lb-404__actions">
+        <a class="lb-btn" href="{{ routes.root_url }}">{{ section.settings.cta_home | default: 'Back to Home' }}</a>
+        <a class="lb-btn lb-btn--ghost" href="{{ routes.all_products_collection_url }}">{{ section.settings.cta_shop | default: 'Browse Products' }}</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "404 Page",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Page Not Found"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Message",
+      "default": "We couldn't find the page you're looking for. It may have been moved or no longer exists."
+    },
+    {
+      "type": "text",
+      "id": "cta_home",
+      "label": "Home button label",
+      "default": "Back to Home"
+    },
+    {
+      "type": "text",
+      "id": "cta_shop",
+      "label": "Shop button label",
+      "default": "Browse Products"
+    }
+  ],
+  "presets": [
+    {
+      "name": "404 Page"
+    }
+  ]
+}
+{% endschema %}

@@ -4,7 +4,37 @@
   assign garments_menu = linklists[section.settings.garments_menu]
   assign arrivals_menu = linklists[section.settings.arrivals_menu]
   assign all_products_url = routes.all_products_collection_url
+
+  assign perfumes_col = collections[section.settings.perfumes_collection]
+  assign jewelry_col = collections[section.settings.jewelry_collection]
+  assign garments_col = collections[section.settings.garments_collection]
+  assign arrivals_col = collections[section.settings.arrivals_collection]
+
+  if perfumes_col != blank
+    assign perfumes_url = perfumes_col.url
+  else
+    assign perfumes_url = all_products_url
+  endif
+
+  if jewelry_col != blank
+    assign jewelry_url = jewelry_col.url
+  else
+    assign jewelry_url = all_products_url
+  endif
+
+  if garments_col != blank
+    assign garments_url = garments_col.url
+  else
+    assign garments_url = all_products_url
+  endif
+
+  if arrivals_col != blank
+    assign arrivals_url = arrivals_col.url
+  else
+    assign arrivals_url = all_products_url
+  endif
 %}
+
 
 
 <header class="lb-header" data-lb-header>
@@ -14,7 +44,7 @@
     <nav class="lb-nav" aria-label="Main navigation">
       <div class="lb-nav__categories">
         <div class="lb-nav__item">
-          <button class="lb-nav__trigger lb-nav__chip" type="button">Girls Perfume</button>
+          <a class="lb-nav__trigger lb-nav__chip" href="{{ perfumes_url }}">Girls Perfume</a>
           <div class="lb-mega" role="menu" aria-label="Perfume menu">
             <div class="lb-mega__grid">
               <div>
@@ -23,16 +53,16 @@
                   {% for link in fragrances_menu.links %}
                     <li><a href="{{ link.url }}">{{ link.title }}</a></li>
                   {% else %}
-                    <li><a href="{{ all_products_url }}">All Perfumes</a></li>
+                    <li><a href="{{ perfumes_url }}">All Perfumes</a></li>
                   {% endfor %}
                 </ul>
               </div>
               <div>
                 <h3 class="lb-mega__title">Curated</h3>
                 <ul class="lb-mega__list">
-                  <li><a href="{{ all_products_url }}">Bestsellers</a></li>
-                  <li><a href="{{ all_products_url }}">Premium Collection</a></li>
-                  <li><a href="{{ all_products_url }}">Evening Luxe</a></li>
+                  <li><a href="{{ perfumes_url }}">Bestsellers</a></li>
+                  <li><a href="{{ perfumes_url }}">Premium Collection</a></li>
+                  <li><a href="{{ perfumes_url }}">Evening Luxe</a></li>
                 </ul>
               </div>
             </div>
@@ -40,7 +70,7 @@
         </div>
 
         <div class="lb-nav__item">
-          <button class="lb-nav__trigger lb-nav__chip" type="button">Jewelry</button>
+          <a class="lb-nav__trigger lb-nav__chip" href="{{ jewelry_url }}">Jewelry</a>
           <div class="lb-mega" role="menu" aria-label="Jewelry menu">
             <div class="lb-mega__grid">
               <div>
@@ -49,18 +79,18 @@
                   {% for link in jewelry_menu.links %}
                     <li><a href="{{ link.url }}">{{ link.title }}</a></li>
                   {% else %}
-                    <li><a href="{{ all_products_url }}">Necklaces</a></li>
-                    <li><a href="{{ all_products_url }}">Earrings</a></li>
-                    <li><a href="{{ all_products_url }}">Bracelets</a></li>
+                    <li><a href="{{ jewelry_url }}">Necklaces</a></li>
+                    <li><a href="{{ jewelry_url }}">Earrings</a></li>
+                    <li><a href="{{ jewelry_url }}">Bracelets</a></li>
                   {% endfor %}
                 </ul>
               </div>
               <div>
                 <h3 class="lb-mega__title">Style Edit</h3>
                 <ul class="lb-mega__list">
-                  <li><a href="{{ all_products_url }}">Party Edit</a></li>
-                  <li><a href="{{ all_products_url }}">Daily Glam</a></li>
-                  <li><a href="{{ all_products_url }}">Gift Picks</a></li>
+                  <li><a href="{{ jewelry_url }}">Party Edit</a></li>
+                  <li><a href="{{ jewelry_url }}">Daily Glam</a></li>
+                  <li><a href="{{ jewelry_url }}">Gift Picks</a></li>
                 </ul>
               </div>
             </div>
@@ -68,7 +98,7 @@
         </div>
 
         <div class="lb-nav__item">
-          <button class="lb-nav__trigger lb-nav__chip" type="button">Garments</button>
+          <a class="lb-nav__trigger lb-nav__chip" href="{{ garments_url }}">Garments</a>
           <div class="lb-mega" role="menu" aria-label="Garments menu">
             <div class="lb-mega__grid">
               <div>
@@ -77,18 +107,18 @@
                   {% for link in garments_menu.links %}
                     <li><a href="{{ link.url }}">{{ link.title }}</a></li>
                   {% else %}
-                    <li><a href="{{ all_products_url }}">Abayas</a></li>
-                    <li><a href="{{ all_products_url }}">Kurtas</a></li>
-                    <li><a href="{{ all_products_url }}">Co-ord Sets</a></li>
+                    <li><a href="{{ garments_url }}">Abayas</a></li>
+                    <li><a href="{{ garments_url }}">Kurtas</a></li>
+                    <li><a href="{{ garments_url }}">Co-ord Sets</a></li>
                   {% endfor %}
                 </ul>
               </div>
               <div>
                 <h3 class="lb-mega__title">By Occasion</h3>
                 <ul class="lb-mega__list">
-                  <li><a href="{{ all_products_url }}">Wedding Guest</a></li>
-                  <li><a href="{{ all_products_url }}">Office Chic</a></li>
-                  <li><a href="{{ all_products_url }}">Weekend Luxe</a></li>
+                  <li><a href="{{ garments_url }}">Wedding Guest</a></li>
+                  <li><a href="{{ garments_url }}">Office Chic</a></li>
+                  <li><a href="{{ garments_url }}">Weekend Luxe</a></li>
                 </ul>
               </div>
             </div>
@@ -96,7 +126,7 @@
         </div>
 
         <div class="lb-nav__item lb-nav__item--arrival">
-          <button class="lb-nav__trigger lb-nav__chip" type="button">New Arrivals</button>
+          <a class="lb-nav__trigger lb-nav__chip" href="{{ arrivals_url }}">New Arrivals</a>
           <div class="lb-mega" role="menu" aria-label="New arrivals menu">
             <div class="lb-mega__grid">
               <div>
@@ -105,16 +135,16 @@
                   {% for link in arrivals_menu.links %}
                     <li><a href="{{ link.url }}">{{ link.title }}</a></li>
                   {% else %}
-                    <li><a href="{{ all_products_url }}">New This Week</a></li>
+                    <li><a href="{{ arrivals_url }}">New This Week</a></li>
                   {% endfor %}
                 </ul>
               </div>
               <div>
                 <h3 class="lb-mega__title">Trending Now</h3>
                 <ul class="lb-mega__list">
-                  <li><a href="{{ all_products_url }}">Editors Choice</a></li>
-                  <li><a href="{{ all_products_url }}">Most Wanted</a></li>
-                  <li><a href="{{ all_products_url }}">Limited Pieces</a></li>
+                  <li><a href="{{ arrivals_url }}">Editors Choice</a></li>
+                  <li><a href="{{ arrivals_url }}">Most Wanted</a></li>
+                  <li><a href="{{ arrivals_url }}">Limited Pieces</a></li>
                 </ul>
               </div>
             </div>
@@ -124,6 +154,13 @@
     </nav>
 
     <div class="lb-header__actions">
+      <a class="lb-header__search-link" href="{{ routes.search_url }}" aria-label="Search">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="1.5"/>
+          <path d="M16.5 16.5L21 21" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </a>
+
       <button class="lb-cart-toggle" type="button" data-lb-cart-toggle aria-label="Open cart">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
           <path d="M7 7H22L20.5 16H8.5L7 7Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
@@ -150,6 +187,8 @@
         <ul>
           {% for link in fragrances_menu.links %}
             <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+          {% else %}
+            <li><a href="{{ perfumes_url }}">All Perfumes</a></li>
           {% endfor %}
         </ul>
       </details>
@@ -158,14 +197,8 @@
         <ul>
           {% for link in jewelry_menu.links %}
             <li><a href="{{ link.url }}">{{ link.title }}</a></li>
-          {% endfor %}
-        </ul>
-      </details>
-      <details>
-        <summary>New Arrivals</summary>
-        <ul>
-          {% for link in arrivals_menu.links %}
-            <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+          {% else %}
+            <li><a href="{{ jewelry_url }}">All Jewelry</a></li>
           {% endfor %}
         </ul>
       </details>
@@ -175,11 +208,24 @@
           {% for link in garments_menu.links %}
             <li><a href="{{ link.url }}">{{ link.title }}</a></li>
           {% else %}
-            <li><a href="{{ all_products_url }}">Abayas</a></li>
-            <li><a href="{{ all_products_url }}">Kurtas</a></li>
+            <li><a href="{{ garments_url }}">All Garments</a></li>
           {% endfor %}
         </ul>
       </details>
+      <details>
+        <summary>New Arrivals</summary>
+        <ul>
+          {% for link in arrivals_menu.links %}
+            <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+          {% else %}
+            <li><a href="{{ arrivals_url }}">All New Arrivals</a></li>
+          {% endfor %}
+        </ul>
+      </details>
+      <div class="lb-mobile-drawer__extra">
+        <a href="{{ routes.search_url }}">Search</a>
+        <a href="{{ routes.cart_url }}">Cart ({{ cart.item_count }})</a>
+      </div>
     </div>
   </div>
 </header>
@@ -195,24 +241,44 @@
       "default": "Zareen Muse"
     },
     {
+      "type": "collection",
+      "id": "perfumes_collection",
+      "label": "Perfumes collection (direct link)"
+    },
+    {
+      "type": "collection",
+      "id": "jewelry_collection",
+      "label": "Jewelry collection (direct link)"
+    },
+    {
+      "type": "collection",
+      "id": "garments_collection",
+      "label": "Garments collection (direct link)"
+    },
+    {
+      "type": "collection",
+      "id": "arrivals_collection",
+      "label": "New Arrivals collection (direct link)"
+    },
+    {
       "type": "link_list",
       "id": "fragrances_menu",
-      "label": "Fragrances menu"
+      "label": "Fragrances mega menu"
     },
     {
       "type": "link_list",
       "id": "jewelry_menu",
-      "label": "Jewelry menu"
+      "label": "Jewelry mega menu"
     },
     {
       "type": "link_list",
       "id": "garments_menu",
-      "label": "Garments menu"
+      "label": "Garments mega menu"
     },
     {
       "type": "link_list",
       "id": "arrivals_menu",
-      "label": "New Arrivals menu"
+      "label": "New Arrivals mega menu"
     }
   ],
   "presets": [

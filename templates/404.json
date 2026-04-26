@@ -1,0 +1,44 @@
+{
+  "sections": {
+    "announcement": {
+      "type": "luxury-announcement-bar",
+      "settings": {
+        "show_bar": true,
+        "announcement_text": "Free delivery across Pakistan on premium orders over PKR 7,000",
+        "link_label": "Shop now"
+      }
+    },
+    "header": {
+      "type": "luxury-header",
+      "settings": {
+        "brand_label": "Zareen Muse"
+      }
+    },
+    "main": {
+      "type": "luxury-404",
+      "settings": {
+        "title": "Page Not Found",
+        "text": "We couldn't find the page you're looking for. It may have been moved or no longer exists.",
+        "cta_home": "Back to Home",
+        "cta_shop": "Browse Products"
+      }
+    },
+    "footer": {
+      "type": "luxury-footer",
+      "settings": {
+        "footer_brand": "Zareen Muse Atelier"
+      }
+    },
+    "cart_drawer": {
+      "type": "luxury-cart-drawer",
+      "settings": {}
+    }
+  },
+  "order": [
+    "announcement",
+    "header",
+    "main",
+    "footer",
+    "cart_drawer"
+  ]
+}

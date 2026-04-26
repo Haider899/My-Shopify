@@ -1,0 +1,74 @@
+{% liquid
+  assign item_count = cart.item_count
+%}
+
+<section class="lb-cart-page">
+  <div class="lb-container">
+    <header class="lb-collection__header">
+      <p class="lb-eyebrow">Your Shopping Bag</p>
+      <h1 class="lb-heading lb-collection__title">Cart ({{ item_count }})</h1>
+    </header>
+
+    {% if item_count > 0 %}
+      <form action="{{ routes.cart_url }}" method="post" novalidate class="lb-cart-page__form">
+        <div class="lb-cart-page__items">
+          {% for item in cart.items %}
+            <div class="lb-cart-page__item">
+              <a href="{{ item.url }}" class="lb-cart-page__item-image">
+                {% if item.image %}
+                  <img src="{{ item.image | image_url: width: 300 }}" alt="{{ item.product_title | escape }}" loading="lazy" width="120" height="120">
+                {% endif %}
+              </a>
+              <div class="lb-cart-page__item-details">
+                <a href="{{ item.url }}" class="lb-cart-page__item-title">{{ item.product_title }}</a>
+                {% if item.variant_title != blank %}
+                  <p class="lb-text lb-cart-page__item-variant">{{ item.variant_title }}</p>
+                {% endif %}
+                <p class="lb-cart-page__item-price">{{ item.final_line_price | money }}</p>
+                <div class="lb-cart-page__qty">
+                  <label for="updates_{{ item.key }}" class="visually-hidden">Quantity for {{ item.product_title }}</label>
+                  <input
+                    class="lb-cart-page__qty-input"
+                    type="number"
+                    name="updates[]"
+                    id="updates_{{ item.key }}"
+                    value="{{ item.quantity }}"
+                    min="0"
+                    aria-label="Quantity for {{ item.product_title | escape }}"
+                  >
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+
+        <div class="lb-cart-page__summary">
+          <div class="lb-cart-page__subtotal">
+            <span class="lb-text">Subtotal</span>
+            <span class="lb-heading">{{ cart.total_price | money }}</span>
+          </div>
+          <p class="lb-text" style="margin:0 0 1rem; color:var(--lb-muted); font-size:0.85rem;">Shipping & taxes calculated at checkout</p>
+          <button type="submit" name="update" class="lb-btn lb-btn--ghost" style="width:100%; margin-bottom:0.6rem;">Update Cart</button>
+          <button type="submit" name="checkout" class="lb-btn" style="width:100%;">Proceed to Checkout</button>
+        </div>
+      </form>
+    {% else %}
+      <div class="lb-cart-page__empty">
+        <p class="lb-text" style="font-size:1.1rem; margin-bottom:1.5rem;">Your cart is currently empty.</p>
+        <a class="lb-btn" href="{{ routes.all_products_collection_url }}">Continue Shopping</a>
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Cart Page",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Cart Page"
+    }
+  ]
+}
+{% endschema %}

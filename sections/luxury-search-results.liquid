@@ -1,0 +1,55 @@
+<section class="lb-search-results">
+  <div class="lb-container">
+    <header class="lb-collection__header">
+      <p class="lb-eyebrow">Search Results</p>
+      {% if search.performed %}
+        <h1 class="lb-heading lb-collection__title">Results for "{{ search.terms }}"</h1>
+      {% else %}
+        <h1 class="lb-heading lb-collection__title">Search</h1>
+      {% endif %}
+    </header>
+
+    <form action="{{ routes.search_url }}" method="get" role="search" class="lb-search-form">
+      <input
+        class="lb-search-form__input"
+        type="search"
+        name="q"
+        value="{{ search.terms | escape }}"
+        placeholder="Search perfumes, jewelry, garments..."
+        aria-label="Search"
+      >
+      <input type="hidden" name="type" value="product">
+      <button class="lb-btn" type="submit">Search</button>
+    </form>
+
+    {% if search.performed %}
+      {% if search.results_count > 0 %}
+        <p class="lb-text" style="margin:1.5rem 0;">{{ search.results_count }} {{ search.results_count | pluralize: 'result', 'results' }} found</p>
+        <div class="lb-grid">
+          {% for product in search.results %}
+            {% if product.object_type == 'product' %}
+              {% render 'lb-product-card', product: product %}
+            {% endif %}
+          {% endfor %}
+        </div>
+      {% else %}
+        <div class="lb-cart-page__empty" style="margin-top:2rem;">
+          <p class="lb-text" style="font-size:1.1rem; margin-bottom:1.5rem;">No results found for "{{ search.terms }}".</p>
+          <a class="lb-btn" href="{{ routes.all_products_collection_url }}">Browse All Products</a>
+        </div>
+      {% endif %}
+    {% endif %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Search Results",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Search Results"
+    }
+  ]
+}
+{% endschema %}

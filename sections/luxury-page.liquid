@@ -1,0 +1,30 @@
+<section class="lb-page">
+  <div class="lb-container">
+    <header class="lb-page__header">
+      <p class="lb-eyebrow">{{ section.settings.eyebrow | default: 'Information' }}</p>
+      <h1 class="lb-heading lb-page__title">{{ page.title }}</h1>
+    </header>
+    <div class="lb-page__body lb-rte">
+      {{ page.content }}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Page Content",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow text",
+      "default": "Information"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Page Content"
+    }
+  ]
+}
+{% endschema %}

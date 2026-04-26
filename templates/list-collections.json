@@ -1,0 +1,48 @@
+{
+  "sections": {
+    "announcement": {
+      "type": "luxury-announcement-bar",
+      "settings": {
+        "show_bar": true,
+        "announcement_text": "Handpicked premium curation for your signature style",
+        "link_label": "Discover"
+      }
+    },
+    "header": {
+      "type": "luxury-header",
+      "settings": {
+        "brand_label": "Zareen Muse"
+      }
+    },
+    "main": {
+      "type": "luxury-collection-list",
+      "settings": {
+        "eyebrow": "Browse",
+        "heading": "All Collections",
+        "description": "Discover our curated categories of premium products."
+      }
+    },
+    "trust_strip": {
+      "type": "luxury-trust-strip",
+      "settings": {}
+    },
+    "footer": {
+      "type": "luxury-footer",
+      "settings": {
+        "footer_brand": "Zareen Muse Atelier"
+      }
+    },
+    "cart_drawer": {
+      "type": "luxury-cart-drawer",
+      "settings": {}
+    }
+  },
+  "order": [
+    "announcement",
+    "header",
+    "main",
+    "trust_strip",
+    "footer",
+    "cart_drawer"
+  ]
+}
