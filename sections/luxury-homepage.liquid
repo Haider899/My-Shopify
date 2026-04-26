@@ -11,7 +11,7 @@
         {% if section.settings.hero_image != blank %}
           {{ section.settings.hero_image | image_url: width: 1800 | image_tag: class: 'lb-hero__image', loading: 'lazy', widths: '480, 768, 1024, 1440, 1800', sizes: '(max-width: 767px) 92vw, 56vw', alt: section.settings.hero_title }}
         {% else %}
-          {{ 'zareen-hero-ultra-hd.svg' | asset_url | image_tag: class: 'lb-hero__image', loading: 'lazy', alt: section.settings.hero_title }}
+          <img class="lb-hero__image" loading="lazy" src="{{ 'zareen-hero-ultra-hd.svg' | asset_url }}" alt="{{ section.settings.hero_title | escape }}">
         {% endif %}
       </div>
       <div class="lb-hero__content">
@@ -176,5 +176,6 @@
   ]
 }
 {% endschema %}
+
 
 
