@@ -70,42 +70,23 @@
     },
     "trust_strip": {
       "type": "luxury-trust-strip",
+      "blocks": {
+        "item_wjAyjp": {
+          "type": "item",
+          "settings": {
+            "title": "100% Authentic",
+            "text": "Premium curated products only"
+          }
+        }
+      },
+      "block_order": [
+        "item_wjAyjp"
+      ],
       "settings": {}
-    },
-    "footer": {
-      "type": "luxury-footer",
-      "settings": {
-        "footer_brand": "Lucent N² Atelier",
-        "footer_text": "Premium perfumes, artisan jewelry, and curated lifestyle objects for modern women.",
-        "shop_menu": "",
-        "support_menu": "",
-        "copyright_text": "&copy; 2026 Lucent N² Atelier. All rights reserved."
-      }
-    },
-    "testimonials": {
-      "type": "luxury-testimonials",
-      "settings": {
-        "heading": "What Our Clients Say"
-      }
     },
     "cart_drawer": {
       "type": "luxury-cart-drawer",
       "settings": {}
-    },
-    "faq": {
-      "type": "luxury-faq",
-      "settings": {
-        "heading": "Frequently Asked Questions"
-      }
-    },
-    "luxury_collection_list_FpkFPb": {
-      "type": "luxury-collection-list",
-      "name": "Collection List",
-      "settings": {
-        "eyebrow": "Browse",
-        "heading": "All Collections",
-        "description": "Discover our curated categories of premium products."
-      }
     },
     "luxury_testimonials_KgATNh": {
       "type": "luxury-testimonials",
@@ -144,6 +125,56 @@
       "settings": {
         "heading": "What Our Clients Say"
       }
+    },
+    "luxury_cart_page_Dw8jtn": {
+      "type": "luxury-cart-page",
+      "name": "Cart Page",
+      "settings": {}
+    },
+    "luxury_faq_FxiWUd": {
+      "type": "luxury-faq",
+      "blocks": {
+        "faq_iP7ATW": {
+          "type": "faq",
+          "settings": {
+            "question": "How long does delivery take in Pakistan?",
+            "answer": "Most orders are delivered within 2-5 business days depending on city."
+          }
+        },
+        "faq_Tctim4": {
+          "type": "faq",
+          "settings": {
+            "question": "Do you offer returns or exchanges?",
+            "answer": "Yes, we offer a 7-day exchange policy for eligible products."
+          }
+        },
+        "faq_nck4gE": {
+          "type": "faq",
+          "settings": {
+            "question": "Are your perfumes and jewelry authentic?",
+            "answer": "Yes. Every item in our store is carefully curated and quality-checked before dispatch."
+          }
+        }
+      },
+      "block_order": [
+        "faq_iP7ATW",
+        "faq_Tctim4",
+        "faq_nck4gE"
+      ],
+      "name": "Luxury FAQ",
+      "settings": {
+        "heading": "Frequently Asked Questions"
+      }
+    },
+    "footer": {
+      "type": "luxury-footer",
+      "settings": {
+        "footer_brand": "Lucent N² Atelier",
+        "footer_text": "Premium perfumes, artisan jewelry, and curated lifestyle objects for modern women.",
+        "shop_menu": "",
+        "support_menu": "",
+        "copyright_text": "© 2026 Lucent N² Atelier. All rights reserved."
+      }
     }
   },
   "order": [
@@ -152,11 +183,10 @@
     "main",
     "luxury_collection_list_mKExjj",
     "trust_strip",
-    "footer",
-    "testimonials",
     "cart_drawer",
-    "faq",
-    "luxury_collection_list_FpkFPb",
-    "luxury_testimonials_KgATNh"
+    "luxury_testimonials_KgATNh",
+    "luxury_cart_page_Dw8jtn",
+    "luxury_faq_FxiWUd",
+    "footer"
   ]
 }
