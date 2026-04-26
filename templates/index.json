@@ -22,6 +22,10 @@
       "type": "luxury-header",
       "settings": {
         "brand_label": "Lucent N²",
+        "perfumes_collection": "",
+        "jewelry_collection": "",
+        "garments_collection": "",
+        "arrivals_collection": "",
         "fragrances_menu": "",
         "jewelry_menu": "",
         "garments_menu": "",
@@ -41,6 +45,16 @@
         "new_arrivals_title": "New Arrivals for Her",
         "new_arrivals_collection": "",
         "new_arrivals_to_show": 8,
+        "categories_heading": "Discover By Category",
+        "perfumes_collection": "",
+        "perfumes_heading": "Girls Perfumes",
+        "jewelry_collection": "",
+        "jewelry_heading": "Elegant Jewelry",
+        "garments_collection": "",
+        "garments_heading": "Fashion Garments",
+        "lifestyle_collection": "",
+        "lifestyle_heading": "Lifestyle Essentials",
+        "category_products_to_show": 8,
         "products_to_show": 8,
         "grid_style": "clean"
       }
@@ -74,16 +88,26 @@
     "cart_drawer": {
       "type": "luxury-cart-drawer",
       "settings": {}
+    },
+    "luxury_collection_list_mKExjj": {
+      "type": "luxury-collection-list",
+      "name": "Collection List",
+      "settings": {
+        "eyebrow": "Browse",
+        "heading": "All Collections",
+        "description": "Discover our curated categories of premium products."
+      }
     }
   },
   "order": [
     "announcement",
     "header",
     "main",
+    "luxury_collection_list_mKExjj",
     "trust_strip",
-    "testimonials",
-    "faq",
     "footer",
-    "cart_drawer"
+    "testimonials",
+    "cart_drawer",
+    "faq"
   ]
 }
