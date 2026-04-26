@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "announcement": {
@@ -5,13 +14,18 @@
       "settings": {
         "show_bar": true,
         "announcement_text": "Free delivery across Pakistan on premium orders over PKR 7,000",
-        "link_label": "Shop now"
+        "link_label": "Shop now",
+        "announcement_link": ""
       }
     },
     "header": {
       "type": "luxury-header",
       "settings": {
-        "brand_label": "Zareen Muse"
+        "brand_label": "Zareen Muse",
+        "fragrances_menu": "",
+        "jewelry_menu": "",
+        "garments_menu": "",
+        "arrivals_menu": ""
       }
     },
     "main": {
@@ -21,6 +35,12 @@
         "hero_title": "Curated Elegance for Your Every Moment",
         "hero_text": "Discover premium perfumes, handcrafted jewelry, and elevated lifestyle selections designed for modern women.",
         "hero_cta_label": "Shop the Collection",
+        "hero_cta_url": "",
+        "grid_title": "Fresh In Store",
+        "collection": "",
+        "new_arrivals_title": "New Arrivals for Her",
+        "new_arrivals_collection": "",
+        "new_arrivals_to_show": 8,
         "products_to_show": 8,
         "grid_style": "clean"
       }
@@ -31,16 +51,24 @@
     },
     "testimonials": {
       "type": "luxury-testimonials",
-      "settings": {}
+      "settings": {
+        "heading": "What Our Clients Say"
+      }
     },
     "faq": {
       "type": "luxury-faq",
-      "settings": {}
+      "settings": {
+        "heading": "Frequently Asked Questions"
+      }
     },
     "footer": {
       "type": "luxury-footer",
       "settings": {
-        "footer_brand": "Zareen Muse Atelier"
+        "footer_brand": "Zareen Muse Atelier",
+        "footer_text": "Premium perfumes, artisan jewelry, and curated lifestyle objects for modern women.",
+        "shop_menu": "",
+        "support_menu": "",
+        "copyright_text": "� 2026 Zareen Muse Atelier. All rights reserved."
       }
     },
     "cart_drawer": {

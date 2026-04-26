@@ -1,15 +1,26 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "current": {
-    "brand_name": "Zareen Muse",
+    "brand_name": "The Curated She",
     "color_nude": "#f4ede6",
     "color_nude_2": "#efe5db",
     "color_gold": "#c6a46a",
     "color_charcoal": "#1f2328",
     "color_muted": "#6f6a64",
     "color_white": "#ffffff",
+    "store_contact_email": "haiderusama707@gmail.com",
+    "store_contact_phone": "+92 3061779004",
     "enable_trust_badges": true,
-    "store_contact_email": "support@zareenmuse.com",
-    "store_contact_phone": "+92 300 0000000"
+    "checkout_layout": "threepage",
+    "content_for_index": []
   },
   "presets": {}
 }
