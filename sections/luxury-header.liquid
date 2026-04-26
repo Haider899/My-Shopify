@@ -13,28 +13,27 @@
   if perfumes_col != blank
     assign perfumes_url = perfumes_col.url
   else
-    assign perfumes_url = all_products_url
+    assign perfumes_url = '/collections/girls-perfume'
   endif
 
   if jewelry_col != blank
     assign jewelry_url = jewelry_col.url
   else
-    assign jewelry_url = all_products_url
+    assign jewelry_url = '/collections/jewelry'
   endif
 
   if garments_col != blank
     assign garments_url = garments_col.url
   else
-    assign garments_url = all_products_url
+    assign garments_url = '/collections/garments'
   endif
 
   if arrivals_col != blank
     assign arrivals_url = arrivals_col.url
   else
-    assign arrivals_url = all_products_url
+    assign arrivals_url = '/collections/new-arrivals'
   endif
 %}
-
 
 
 <header class="lb-header" data-lb-header>
@@ -43,6 +42,8 @@
 
     <nav class="lb-nav" aria-label="Main navigation">
       <div class="lb-nav__categories">
+
+        <!-- ═══════════ GIRLS PERFUME ═══════════ -->
         <div class="lb-nav__item">
           <a class="lb-nav__trigger lb-nav__chip" href="{{ perfumes_url }}">Girls Perfume</a>
           <div class="lb-mega" role="menu" aria-label="Perfume menu">
@@ -54,21 +55,24 @@
                     <li><a href="{{ link.url }}">{{ link.title }}</a></li>
                   {% else %}
                     <li><a href="{{ perfumes_url }}">All Perfumes</a></li>
+                    <li><a href="/collections/bestsellers">Bestsellers</a></li>
+                    <li><a href="/collections/premium-collection">Premium Collection</a></li>
                   {% endfor %}
                 </ul>
               </div>
               <div>
                 <h3 class="lb-mega__title">Curated</h3>
                 <ul class="lb-mega__list">
-                  <li><a href="{{ perfumes_url }}">Bestsellers</a></li>
-                  <li><a href="{{ perfumes_url }}">Premium Collection</a></li>
-                  <li><a href="{{ perfumes_url }}">Evening Luxe</a></li>
+                  <li><a href="/collections/evening-luxe">Evening Luxe</a></li>
+                  <li><a href="/collections/gift-sets">Gift Sets</a></li>
+                  <li><a href="{{ perfumes_url }}">Shop All</a></li>
                 </ul>
               </div>
             </div>
           </div>
         </div>
 
+        <!-- ═══════════ JEWELRY ═══════════ -->
         <div class="lb-nav__item">
           <a class="lb-nav__trigger lb-nav__chip" href="{{ jewelry_url }}">Jewelry</a>
           <div class="lb-mega" role="menu" aria-label="Jewelry menu">
@@ -79,24 +83,25 @@
                   {% for link in jewelry_menu.links %}
                     <li><a href="{{ link.url }}">{{ link.title }}</a></li>
                   {% else %}
-                    <li><a href="{{ jewelry_url }}">Necklaces</a></li>
-                    <li><a href="{{ jewelry_url }}">Earrings</a></li>
-                    <li><a href="{{ jewelry_url }}">Bracelets</a></li>
+                    <li><a href="/collections/necklaces">Necklaces</a></li>
+                    <li><a href="/collections/earrings">Earrings</a></li>
+                    <li><a href="/collections/bracelets">Bracelets</a></li>
                   {% endfor %}
                 </ul>
               </div>
               <div>
                 <h3 class="lb-mega__title">Style Edit</h3>
                 <ul class="lb-mega__list">
-                  <li><a href="{{ jewelry_url }}">Party Edit</a></li>
-                  <li><a href="{{ jewelry_url }}">Daily Glam</a></li>
-                  <li><a href="{{ jewelry_url }}">Gift Picks</a></li>
+                  <li><a href="/collections/party-edit">Party Edit</a></li>
+                  <li><a href="/collections/daily-glam">Daily Glam</a></li>
+                  <li><a href="/collections/gift-picks">Gift Picks</a></li>
                 </ul>
               </div>
             </div>
           </div>
         </div>
 
+        <!-- ═══════════ GARMENTS ═══════════ -->
         <div class="lb-nav__item">
           <a class="lb-nav__trigger lb-nav__chip" href="{{ garments_url }}">Garments</a>
           <div class="lb-mega" role="menu" aria-label="Garments menu">
@@ -107,24 +112,25 @@
                   {% for link in garments_menu.links %}
                     <li><a href="{{ link.url }}">{{ link.title }}</a></li>
                   {% else %}
-                    <li><a href="{{ garments_url }}">Abayas</a></li>
-                    <li><a href="{{ garments_url }}">Kurtas</a></li>
-                    <li><a href="{{ garments_url }}">Co-ord Sets</a></li>
+                    <li><a href="/collections/abayas">Abayas</a></li>
+                    <li><a href="/collections/kurtas">Kurtas</a></li>
+                    <li><a href="/collections/co-ord-sets">Co-ord Sets</a></li>
                   {% endfor %}
                 </ul>
               </div>
               <div>
                 <h3 class="lb-mega__title">By Occasion</h3>
                 <ul class="lb-mega__list">
-                  <li><a href="{{ garments_url }}">Wedding Guest</a></li>
-                  <li><a href="{{ garments_url }}">Office Chic</a></li>
-                  <li><a href="{{ garments_url }}">Weekend Luxe</a></li>
+                  <li><a href="/collections/wedding-guest">Wedding Guest</a></li>
+                  <li><a href="/collections/office-chic">Office Chic</a></li>
+                  <li><a href="/collections/weekend-luxe">Weekend Luxe</a></li>
                 </ul>
               </div>
             </div>
           </div>
         </div>
 
+        <!-- ═══════════ NEW ARRIVALS ═══════════ -->
         <div class="lb-nav__item lb-nav__item--arrival">
           <a class="lb-nav__trigger lb-nav__chip" href="{{ arrivals_url }}">New Arrivals</a>
           <div class="lb-mega" role="menu" aria-label="New arrivals menu">
@@ -135,16 +141,17 @@
                   {% for link in arrivals_menu.links %}
                     <li><a href="{{ link.url }}">{{ link.title }}</a></li>
                   {% else %}
-                    <li><a href="{{ arrivals_url }}">New This Week</a></li>
+                    <li><a href="/collections/new-this-week">New This Week</a></li>
+                    <li><a href="{{ arrivals_url }}">All New Arrivals</a></li>
                   {% endfor %}
                 </ul>
               </div>
               <div>
                 <h3 class="lb-mega__title">Trending Now</h3>
                 <ul class="lb-mega__list">
-                  <li><a href="{{ arrivals_url }}">Editors Choice</a></li>
-                  <li><a href="{{ arrivals_url }}">Most Wanted</a></li>
-                  <li><a href="{{ arrivals_url }}">Limited Pieces</a></li>
+                  <li><a href="/collections/editors-choice">Editors Choice</a></li>
+                  <li><a href="/collections/most-wanted">Most Wanted</a></li>
+                  <li><a href="/collections/limited-pieces">Limited Pieces</a></li>
                 </ul>
               </div>
             </div>
@@ -180,15 +187,19 @@
     </div>
   </div>
 
+  <!-- ═══════════ MOBILE DRAWER ═══════════ -->
   <div class="lb-mobile-drawer" id="lb-mobile-drawer" data-lb-mobile-drawer>
     <div class="lb-container">
       <details>
-        <summary>Fragrances</summary>
+        <summary>Girls Perfume</summary>
         <ul>
           {% for link in fragrances_menu.links %}
             <li><a href="{{ link.url }}">{{ link.title }}</a></li>
           {% else %}
             <li><a href="{{ perfumes_url }}">All Perfumes</a></li>
+            <li><a href="/collections/bestsellers">Bestsellers</a></li>
+            <li><a href="/collections/premium-collection">Premium Collection</a></li>
+            <li><a href="/collections/evening-luxe">Evening Luxe</a></li>
           {% endfor %}
         </ul>
       </details>
@@ -198,7 +209,12 @@
           {% for link in jewelry_menu.links %}
             <li><a href="{{ link.url }}">{{ link.title }}</a></li>
           {% else %}
-            <li><a href="{{ jewelry_url }}">All Jewelry</a></li>
+            <li><a href="/collections/necklaces">Necklaces</a></li>
+            <li><a href="/collections/earrings">Earrings</a></li>
+            <li><a href="/collections/bracelets">Bracelets</a></li>
+            <li><a href="/collections/party-edit">Party Edit</a></li>
+            <li><a href="/collections/daily-glam">Daily Glam</a></li>
+            <li><a href="/collections/gift-picks">Gift Picks</a></li>
           {% endfor %}
         </ul>
       </details>
@@ -208,7 +224,12 @@
           {% for link in garments_menu.links %}
             <li><a href="{{ link.url }}">{{ link.title }}</a></li>
           {% else %}
-            <li><a href="{{ garments_url }}">All Garments</a></li>
+            <li><a href="/collections/abayas">Abayas</a></li>
+            <li><a href="/collections/kurtas">Kurtas</a></li>
+            <li><a href="/collections/co-ord-sets">Co-ord Sets</a></li>
+            <li><a href="/collections/wedding-guest">Wedding Guest</a></li>
+            <li><a href="/collections/office-chic">Office Chic</a></li>
+            <li><a href="/collections/weekend-luxe">Weekend Luxe</a></li>
           {% endfor %}
         </ul>
       </details>
@@ -218,7 +239,10 @@
           {% for link in arrivals_menu.links %}
             <li><a href="{{ link.url }}">{{ link.title }}</a></li>
           {% else %}
-            <li><a href="{{ arrivals_url }}">All New Arrivals</a></li>
+            <li><a href="/collections/new-this-week">New This Week</a></li>
+            <li><a href="/collections/editors-choice">Editors Choice</a></li>
+            <li><a href="/collections/most-wanted">Most Wanted</a></li>
+            <li><a href="/collections/limited-pieces">Limited Pieces</a></li>
           {% endfor %}
         </ul>
       </details>
@@ -263,22 +287,22 @@
     {
       "type": "link_list",
       "id": "fragrances_menu",
-      "label": "Fragrances mega menu"
+      "label": "Fragrances mega menu (optional override)"
     },
     {
       "type": "link_list",
       "id": "jewelry_menu",
-      "label": "Jewelry mega menu"
+      "label": "Jewelry mega menu (optional override)"
     },
     {
       "type": "link_list",
       "id": "garments_menu",
-      "label": "Garments mega menu"
+      "label": "Garments mega menu (optional override)"
     },
     {
       "type": "link_list",
       "id": "arrivals_menu",
-      "label": "New Arrivals mega menu"
+      "label": "New Arrivals mega menu (optional override)"
     }
   ],
   "presets": [
@@ -288,4 +312,3 @@
   ]
 }
 {% endschema %}
-
