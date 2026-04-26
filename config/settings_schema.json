@@ -1,0 +1,107 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "Zareen Muse",
+    "theme_version": "1.0.0",
+    "theme_author": "Zareen Muse Studio",
+    "theme_documentation_url": "https://help.shopify.com/manual/online-store/themes",
+    "theme_support_url": "https://help.shopify.com"
+  },
+  {
+    "name": "Brand Identity",
+    "settings": [
+      {
+        "type": "text",
+        "id": "brand_name",
+        "label": "Brand name",
+        "default": "Zareen Muse"
+      },
+      {
+        "type": "image_picker",
+        "id": "favicon",
+        "label": "Favicon"
+      }
+    ]
+  },
+  {
+    "name": "Color System",
+    "settings": [
+      {
+        "type": "color",
+        "id": "color_nude",
+        "label": "Soft nude",
+        "default": "#f4ede6"
+      },
+      {
+        "type": "color",
+        "id": "color_nude_2",
+        "label": "Soft nude 2",
+        "default": "#efe5db"
+      },
+      {
+        "type": "color",
+        "id": "color_gold",
+        "label": "Champagne gold accent",
+        "default": "#c6a46a"
+      },
+      {
+        "type": "color",
+        "id": "color_charcoal",
+        "label": "Deep charcoal",
+        "default": "#1f2328"
+      },
+      {
+        "type": "color",
+        "id": "color_muted",
+        "label": "Muted text",
+        "default": "#6f6a64"
+      },
+      {
+        "type": "color",
+        "id": "color_white",
+        "label": "Background white",
+        "default": "#ffffff"
+      }
+    ]
+  },
+  {
+    "name": "Typography",
+    "settings": [
+      {
+        "type": "font_picker",
+        "id": "heading_font",
+        "label": "Heading font",
+        "default": "playfair_display_n4"
+      },
+      {
+        "type": "font_picker",
+        "id": "body_font",
+        "label": "Body font",
+        "default": "montserrat_n4"
+      }
+    ]
+  },
+  {
+    "name": "Checkout & Trust",
+    "settings": [
+      {
+        "type": "text",
+        "id": "store_contact_email",
+        "label": "Support email",
+        "default": "support@zareenmuse.com"
+      },
+      {
+        "type": "text",
+        "id": "store_contact_phone",
+        "label": "Support phone",
+        "default": "+92 300 0000000"
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_trust_badges",
+        "label": "Enable trust badges",
+        "default": true
+      }
+    ]
+  }
+]

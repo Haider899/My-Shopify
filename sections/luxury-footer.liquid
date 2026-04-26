@@ -1,0 +1,86 @@
+
+<footer class="lb-footer">
+  <div class="lb-container lb-footer__grid">
+    <div>
+      <p class="lb-eyebrow">Zareen Muse</p>
+      <h2 class="lb-footer__brand">{{ section.settings.footer_brand }}</h2>
+      <p class="lb-text">{{ section.settings.footer_text }}</p>
+    </div>
+
+    <div>
+      <h3 class="lb-footer__title">Shop</h3>
+      <ul class="lb-footer__links">
+        {% for link in section.settings.shop_menu.links %}
+          <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+
+    <div>
+      <h3 class="lb-footer__title">Support</h3>
+      <ul class="lb-footer__links">
+        {% for link in section.settings.support_menu.links %}
+          <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+
+    <div>
+      <h3 class="lb-footer__title">Newsletter</h3>
+      {% form 'customer' %}
+        <input type="hidden" name="contact[tags]" value="newsletter">
+        <label for="lb-newsletter-{{ section.id }}" class="visually-hidden">Email</label>
+        <div class="lb-footer__newsletter">
+          <input id="lb-newsletter-{{ section.id }}" type="email" name="contact[email]" placeholder="Enter your email" required>
+          <button class="lb-btn" type="submit">Subscribe</button>
+        </div>
+      {% endform %}
+    </div>
+  </div>
+
+  <div class="lb-container lb-footer__bottom">
+    <p class="lb-text">{{ section.settings.copyright_text }}</p>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Luxury Footer",
+  "settings": [
+    {
+      "type": "text",
+      "id": "footer_brand",
+      "label": "Footer brand",
+      "default": "Zareen Muse Atelier"
+    },
+    {
+      "type": "textarea",
+      "id": "footer_text",
+      "label": "Footer description",
+      "default": "Premium perfumes, artisan jewelry, and curated lifestyle objects for modern women."
+    },
+    {
+      "type": "link_list",
+      "id": "shop_menu",
+      "label": "Shop menu"
+    },
+    {
+      "type": "link_list",
+      "id": "support_menu",
+      "label": "Support menu"
+    },
+    {
+      "type": "text",
+      "id": "copyright_text",
+      "label": "Copyright text",
+      "default": "� 2026 Zareen Muse Atelier. All rights reserved."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Luxury Footer"
+    }
+  ]
+}
+{% endschema %}
+

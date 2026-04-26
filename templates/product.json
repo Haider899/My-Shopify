@@ -1,0 +1,41 @@
+{
+  "sections": {
+    "announcement": {
+      "type": "luxury-announcement-bar",
+      "settings": {
+        "show_bar": true,
+        "announcement_text": "Limited edition drops updated every Friday",
+        "link_label": "Explore New Arrivals"
+      }
+    },
+    "header": {
+      "type": "luxury-header",
+      "settings": {
+        "brand_label": "Zareen Muse"
+      }
+    },
+    "main": {
+      "type": "luxury-product-template",
+      "settings": {
+        "related_limit": 4
+      }
+    },
+    "footer": {
+      "type": "luxury-footer",
+      "settings": {
+        "footer_brand": "Zareen Muse Atelier"
+      }
+    },
+    "cart_drawer": {
+      "type": "luxury-cart-drawer",
+      "settings": {}
+    }
+  },
+  "order": [
+    "announcement",
+    "header",
+    "main",
+    "footer",
+    "cart_drawer"
+  ]
+}

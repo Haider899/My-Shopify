@@ -1,0 +1,25 @@
+{
+  "sections": {
+    "header": {
+      "type": "luxury-header",
+      "settings": {
+        "brand_label": "Noir Atelier"
+      }
+    },
+    "main": {
+      "type": "luxury-homepage",
+      "settings": {
+        "hero_eyebrow": "Luxe Edit",
+        "hero_title": "Curated Elegance for Your Every Moment",
+        "hero_text": "Discover premium perfumes, handcrafted jewelry, and elevated lifestyle selections designed for modern women.",
+        "hero_cta_label": "Shop the Collection",
+        "products_to_show": 8,
+        "grid_style": "clean"
+      }
+    }
+  },
+  "order": [
+    "header",
+    "main"
+  ]
+}

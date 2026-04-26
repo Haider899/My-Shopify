@@ -1,0 +1,48 @@
+
+{% if section.settings.show_bar %}
+  <section class="lb-announcement" role="region" aria-label="Store announcement">
+    <div class="lb-container lb-announcement__inner">
+      <p class="lb-announcement__text">{{ section.settings.announcement_text }}</p>
+      {% if section.settings.announcement_link != blank %}
+        <a href="{{ section.settings.announcement_link }}" class="lb-announcement__link">{{ section.settings.link_label }}</a>
+      {% endif %}
+    </div>
+  </section>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Luxury Announcement Bar",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_bar",
+      "label": "Show announcement bar",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "announcement_text",
+      "label": "Announcement text",
+      "default": "Free delivery across Pakistan on premium orders over PKR 7,000"
+    },
+    {
+      "type": "text",
+      "id": "link_label",
+      "label": "Link label",
+      "default": "Learn more"
+    },
+    {
+      "type": "url",
+      "id": "announcement_link",
+      "label": "Link URL"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Luxury Announcement Bar"
+    }
+  ]
+}
+{% endschema %}
+

@@ -1,0 +1,135 @@
+{% liquid
+  assign featured_collection = collection
+  assign products_per_page = section.settings.products_per_page
+%}
+
+
+<section class="lb-collection">
+  <div class="lb-container">
+    <header class="lb-collection__header">
+      <p class="lb-eyebrow">Zareen Muse Curation</p>
+      <h1 class="lb-heading lb-collection__title">{{ collection.title }}</h1>
+      {% if collection.description != blank %}
+        <div class="lb-text lb-collection__description">{{ collection.description }}</div>
+      {% endif %}
+    </header>
+
+    <div class="lb-collection__toolbar">
+      <span class="lb-text">{{ collection.products_count }} products</span>
+      <form method="get" action="{{ collection.url }}" class="lb-collection__sort">
+        <label for="SortBy-{{ section.id }}" class="lb-text">Sort</label>
+        <select name="sort_by" id="SortBy-{{ section.id }}" onchange="this.form.submit()">
+          {% assign sort_by = collection.sort_by | default: collection.default_sort_by %}
+          {% for option in collection.sort_options %}
+            <option value="{{ option.value }}" {% if option.value == sort_by %}selected{% endif %}>{{ option.name }}</option>
+          {% endfor %}
+        </select>
+      </form>
+    </div>
+
+    {% paginate collection.products by products_per_page %}
+      <div class="lb-grid {% if section.settings.grid_style == 'masonry' %}lb-grid--masonry{% endif %}">
+        {% for product in collection.products %}
+          <article class="lb-product-card">
+            <a class="lb-product-card__media" href="{{ product.url }}">
+              {% assign primary_image = product.featured_image %}
+              {% assign secondary_image = product.images[1] %}
+
+              {% if primary_image %}
+                {{ primary_image | image_url: width: 1000 | image_tag: class: 'lb-product-card__img lb-product-card__img--primary', loading: 'lazy', widths: '300, 450, 700, 1000', sizes: '(max-width: 767px) 46vw, (max-width: 1023px) 30vw, 22vw', alt: product.title }}
+              {% else %}
+                {{ 'product-1' | placeholder_svg_tag: 'lb-product-card__img lb-product-card__img--primary' }}
+              {% endif %}
+
+              {% if secondary_image %}
+                {{ secondary_image | image_url: width: 1000 | image_tag: class: 'lb-product-card__img lb-product-card__img--secondary', loading: 'lazy', widths: '300, 450, 700, 1000', sizes: '(max-width: 767px) 46vw, (max-width: 1023px) 30vw, 22vw', alt: product.title }}
+              {% endif %}
+            </a>
+
+            <button
+              class="lb-product-card__quick"
+              type="button"
+              data-lb-quick-view
+              data-product-title="{{ product.title | escape }}"
+              data-product-price="{{ product.price | money }}"
+              data-product-image="{{ primary_image | image_url: width: 900 }}"
+              data-product-url="{{ product.url }}"
+              aria-label="Quick view {{ product.title | escape }}"
+            >
+              Quick View
+            </button>
+
+            <div class="lb-product-card__body">
+              <h2 class="lb-product-card__title"><a href="{{ product.url }}">{{ product.title }}</a></h2>
+              <p class="lb-product-card__price">{{ product.price | money }}</p>
+            </div>
+          </article>
+        {% endfor %}
+      </div>
+
+      {% if paginate.pages > 1 %}
+        <nav class="lb-pagination" aria-label="Collection pagination">
+          {% if paginate.previous %}
+            <a href="{{ paginate.previous.url }}" class="lb-btn lb-btn--ghost">Previous</a>
+          {% endif %}
+          <span class="lb-text">Page {{ paginate.current_page }} of {{ paginate.pages }}</span>
+          {% if paginate.next %}
+            <a href="{{ paginate.next.url }}" class="lb-btn lb-btn--ghost">Next</a>
+          {% endif %}
+        </nav>
+      {% endif %}
+    {% endpaginate %}
+  </div>
+</section>
+
+<div class="lb-modal" data-lb-quick-modal>
+  <div class="lb-modal__overlay" data-lb-modal-overlay></div>
+  <div class="lb-modal__dialog" role="dialog" aria-modal="true" aria-label="Quick view product">
+    <button class="lb-modal__close" type="button" data-lb-modal-close aria-label="Close modal">�</button>
+    <div class="lb-modal__body">
+      <img src="" alt="" data-lb-qv-image loading="lazy" style="width:100%; border-radius:12px; margin-bottom:0.9rem; aspect-ratio:4/3; object-fit:cover;" />
+      <h3 data-lb-qv-title style="margin:0 0 0.45rem; color:var(--lb-charcoal);"></h3>
+      <p data-lb-qv-price style="margin:0 0 0.95rem; color:var(--lb-muted);"></p>
+      <a data-lb-qv-link class="lb-btn" href="#">View Product</a>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Luxury Collection Template",
+  "settings": [
+    {
+      "type": "range",
+      "id": "products_per_page",
+      "label": "Products per page",
+      "min": 8,
+      "max": 32,
+      "step": 4,
+      "default": 16
+    },
+    {
+      "type": "select",
+      "id": "grid_style",
+      "label": "Grid style",
+      "default": "clean",
+      "options": [
+        {
+          "value": "clean",
+          "label": "Clean grid"
+        },
+        {
+          "value": "masonry",
+          "label": "Masonry-style"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Luxury Collection Template"
+    }
+  ]
+}
+{% endschema %}
+

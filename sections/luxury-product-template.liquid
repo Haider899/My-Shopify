@@ -1,0 +1,163 @@
+{% liquid
+  assign current_variant = product.selected_or_first_available_variant
+  assign related_limit = section.settings.related_limit
+  assign product_tags = product.tags
+%}
+
+
+<section class="lb-product">
+  <div class="lb-container">
+    <div class="lb-product__layout">
+      <div class="lb-gallery">
+        <div class="lb-gallery__main">
+          {% if product.featured_media %}
+            {{ product.featured_media | image_url: width: 1400 | image_tag: loading: 'eager', widths: '500, 700, 900, 1200, 1400', sizes: '(max-width: 767px) 92vw, 52vw', alt: product.title }}
+          {% else %}
+            {{ 'product-1' | placeholder_svg_tag }}
+          {% endif %}
+        </div>
+        {% if product.media.size > 1 %}
+          <div class="lb-gallery__thumbs">
+            {% for media in product.media limit: 4 %}
+              {{ media | image_url: width: 300 | image_tag: loading: 'lazy', widths: '90, 140, 200, 300', sizes: '(max-width: 767px) 22vw, 110px', alt: product.title }}
+            {% endfor %}
+          </div>
+        {% endif %}
+      </div>
+
+      <div class="lb-product__panel">
+        <p class="lb-eyebrow">Luxury Selection</p>
+        <h1 class="lb-heading lb-product__title">{{ product.title }}</h1>
+        <p class="lb-product__price">{{ current_variant.price | money }}</p>
+
+        {% if product.description != blank %}
+          <div class="lb-product__description rte">{{ product.description }}</div>
+        {% endif %}
+
+        {% form 'product', product, data-lb-product-form: true %}
+          {% if product.variants.size > 1 %}
+            <div class="lb-variant-select">
+              <label for="VariantSelect-{{ section.id }}" class="lb-text" style="display:block; margin-bottom:0.45rem;">Choose option</label>
+              <select id="VariantSelect-{{ section.id }}" name="id">
+                {% for variant in product.variants %}
+                  <option value="{{ variant.id }}" {% if variant.id == current_variant.id %}selected{% endif %} {% unless variant.available %}disabled{% endunless %}>
+                    {{ variant.title }} - {{ variant.price | money }}
+                  </option>
+                {% endfor %}
+              </select>
+            </div>
+          {% else %}
+            <input type="hidden" name="id" value="{{ current_variant.id }}">
+          {% endif %}
+
+          <div class="lb-atc-row">
+            <input class="lb-qty" type="number" name="quantity" min="1" value="1" aria-label="Quantity">
+            <button
+              data-lb-main-atc
+              class="lb-btn"
+              style="width:100%;"
+              type="submit"
+              {% unless current_variant.available %}disabled{% endunless %}
+            >
+              {% if current_variant.available %}
+                Add to cart
+              {% else %}
+                Sold out
+              {% endif %}
+            </button>
+          </div>
+        {% endform %}
+
+        {% if product.tags.size > 0 %}
+          <p class="lb-text" style="margin-top:1rem; font-size:0.86rem;">Tags: {{ product.tags | join: ', ' }}</p>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="lb-related">
+  <div class="lb-container">
+    <div class="lb-related__head">
+      <div>
+        <p class="lb-eyebrow">Pair With</p>
+        <h2 class="lb-heading" style="margin:0.35rem 0 0; font-size: clamp(1.4rem, 4vw, 2rem);">Related Products</h2>
+      </div>
+    </div>
+
+    {% assign shown_count = 0 %}
+    <div class="lb-grid">
+      {% for candidate in collections.all.products %}
+        {% if candidate.id != product.id and shown_count < related_limit %}
+          {% assign has_match = false %}
+          {% for tag in product_tags %}
+            {% if candidate.tags contains tag %}
+              {% assign has_match = true %}
+              {% break %}
+            {% endif %}
+          {% endfor %}
+
+          {% if has_match %}
+            {% assign shown_count = shown_count | plus: 1 %}
+            <article class="lb-product-card">
+              <a class="lb-product-card__media" href="{{ candidate.url }}">
+                {% assign primary_image = candidate.featured_image %}
+                {% assign secondary_image = candidate.images[1] %}
+
+                {% if primary_image %}
+                  {{ primary_image | image_url: width: 900 | image_tag: class: 'lb-product-card__img lb-product-card__img--primary', loading: 'lazy', widths: '300, 450, 600, 900', sizes: '(max-width: 767px) 46vw, (max-width: 1023px) 30vw, 22vw', alt: candidate.title }}
+                {% endif %}
+
+                {% if secondary_image %}
+                  {{ secondary_image | image_url: width: 900 | image_tag: class: 'lb-product-card__img lb-product-card__img--secondary', loading: 'lazy', widths: '300, 450, 600, 900', sizes: '(max-width: 767px) 46vw, (max-width: 1023px) 30vw, 22vw', alt: candidate.title }}
+                {% endif %}
+              </a>
+
+              <div class="lb-product-card__body">
+                <h3 class="lb-product-card__title"><a href="{{ candidate.url }}">{{ candidate.title }}</a></h3>
+                <p class="lb-product-card__price">{{ candidate.price | money }}</p>
+              </div>
+            </article>
+          {% endif %}
+        {% endif %}
+      {% endfor %}
+    </div>
+
+    {% if shown_count == 0 %}
+      <p class="lb-text">No related products found by tags yet. Add matching tags across products to improve this section.</p>
+    {% endif %}
+  </div>
+</section>
+
+<div class="lb-sticky-atc" data-lb-sticky-atc>
+  <div class="lb-container lb-sticky-atc__inner">
+    <div class="lb-sticky-atc__meta">
+      <p class="lb-sticky-atc__title">{{ product.title }}</p>
+      <p class="lb-sticky-atc__price">{{ current_variant.price | money }}</p>
+    </div>
+    <button class="lb-btn" type="button" data-lb-sticky-submit>Add to cart</button>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Luxury Product Template",
+  "settings": [
+    {
+      "type": "range",
+      "id": "related_limit",
+      "label": "Related products count",
+      "min": 2,
+      "max": 12,
+      "step": 1,
+      "default": 4
+    }
+  ],
+  "presets": [
+    {
+      "name": "Luxury Product Template"
+    }
+  ]
+}
+{% endschema %}
+

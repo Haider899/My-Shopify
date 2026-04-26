@@ -1,0 +1,67 @@
+
+<aside
+  class="lb-cart-drawer"
+  data-lb-cart-drawer
+  data-money-format="{{ shop.money_format | escape }}"
+  aria-hidden="true"
+>
+  <div class="lb-cart-drawer__overlay" data-lb-cart-close></div>
+
+  <div class="lb-cart-drawer__panel" role="dialog" aria-modal="true" aria-label="Shopping cart">
+    <header class="lb-cart-drawer__head">
+      <h2>Your Cart</h2>
+      <button type="button" data-lb-cart-close aria-label="Close cart">�</button>
+    </header>
+
+    <div class="lb-cart-drawer__body">
+      <div data-lb-cart-empty {% if cart.item_count > 0 %}hidden{% endif %}>
+        <p class="lb-text">Your cart is empty.</p>
+      </div>
+
+      <ul class="lb-cart-drawer__items" data-lb-cart-items>
+        {% for item in cart.items %}
+          <li class="lb-cart-item">
+            <a class="lb-cart-item__image" href="{{ item.url }}">
+              {% if item.image %}
+                {{ item.image | image_url: width: 220 | image_tag: loading: 'lazy', widths: '110,160,220', sizes: '72px', alt: item.product.title }}
+              {% endif %}
+            </a>
+            <div class="lb-cart-item__meta">
+              <a href="{{ item.url }}" class="lb-cart-item__title">{{ item.product.title }}</a>
+              <p class="lb-cart-item__variant">{{ item.variant.title }}</p>
+              <p class="lb-cart-item__price">{{ item.final_line_price | money }}</p>
+              <div class="lb-cart-item__qty">
+                <button type="button" data-lb-cart-qty="dec" data-key="{{ item.key }}">-</button>
+                <span>{{ item.quantity }}</span>
+                <button type="button" data-lb-cart-qty="inc" data-key="{{ item.key }}">+</button>
+                <button type="button" data-lb-cart-qty="remove" data-key="{{ item.key }}">Remove</button>
+              </div>
+            </div>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+
+    <footer class="lb-cart-drawer__foot">
+      <div class="lb-cart-drawer__subtotal-row">
+        <span>Subtotal</span>
+        <strong data-lb-cart-subtotal>{{ cart.total_price | money }}</strong>
+      </div>
+      <a class="lb-btn" href="/checkout">Checkout</a>
+      <a class="lb-btn lb-btn--ghost" href="{{ routes.cart_url }}">View Cart</a>
+    </footer>
+  </div>
+</aside>
+
+{% schema %}
+{
+  "name": "Luxury Cart Drawer",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Luxury Cart Drawer"
+    }
+  ]
+}
+{% endschema %}
+
