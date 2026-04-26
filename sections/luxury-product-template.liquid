@@ -94,40 +94,16 @@
       </div>
     </div>
 
-    {% assign shown_count = 0 %}
     <div class="lb-grid">
-      {% for candidate in collections.all.products %}
-        {% if candidate.id != product.id and shown_count < related_limit %}
-          {% assign has_match = false %}
-          {% for tag in product_tags %}
-            {% if candidate.tags contains tag %}
-              {% assign has_match = true %}
-              {% break %}
+      {% assign shown_count = 0 %}
+      {% for tag in product_tags %}
+        {% if shown_count < related_limit %}
+          {% for candidate in collections.all.products %}
+            {% if candidate.id != product.id and shown_count < related_limit and candidate.tags contains tag %}
+              {% assign shown_count = shown_count | plus: 1 %}
+              {% render 'lb-product-card', product: candidate %}
             {% endif %}
           {% endfor %}
-
-          {% if has_match %}
-            {% assign shown_count = shown_count | plus: 1 %}
-            <article class="lb-product-card">
-              <a class="lb-product-card__media" href="{{ candidate.url }}">
-                {% assign primary_image = candidate.featured_image %}
-                {% assign secondary_image = candidate.images[1] %}
-
-                {% if primary_image %}
-                  {{ primary_image | image_url: width: 900 | image_tag: class: 'lb-product-card__img lb-product-card__img--primary', loading: 'lazy', widths: '300, 450, 600, 900', sizes: '(max-width: 767px) 46vw, (max-width: 1023px) 30vw, 22vw', alt: candidate.title }}
-                {% endif %}
-
-                {% if secondary_image %}
-                  {{ secondary_image | image_url: width: 900 | image_tag: class: 'lb-product-card__img lb-product-card__img--secondary', loading: 'lazy', widths: '300, 450, 600, 900', sizes: '(max-width: 767px) 46vw, (max-width: 1023px) 30vw, 22vw', alt: candidate.title }}
-                {% endif %}
-              </a>
-
-              <div class="lb-product-card__body">
-                <h3 class="lb-product-card__title"><a href="{{ candidate.url }}">{{ candidate.title }}</a></h3>
-                <p class="lb-product-card__price">{{ candidate.price | money }}</p>
-              </div>
-            </article>
-          {% endif %}
         {% endif %}
       {% endfor %}
     </div>

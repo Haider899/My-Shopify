@@ -1,6 +1,10 @@
 ﻿{% liquid
   assign featured_collection = collections[section.settings.collection]
   assign arrivals_collection = collections[section.settings.new_arrivals_collection]
+  assign perfumes_collection = collections[section.settings.perfumes_collection]
+  assign jewelry_collection = collections[section.settings.jewelry_collection]
+  assign garments_collection = collections[section.settings.garments_collection]
+  assign lifestyle_collection = collections[section.settings.lifestyle_collection]
   assign products_to_show = section.settings.products_to_show
   assign hero_cta_link = section.settings.hero_cta_url
   if hero_cta_link == blank
@@ -22,7 +26,7 @@
         <p class="lb-eyebrow">{{ section.settings.hero_eyebrow }}</p>
         <h1 class="lb-heading lb-hero__title">{{ section.settings.hero_title }}</h1>
         <p class="lb-text lb-hero__description">{{ section.settings.hero_text }}</p>
-      <a class="lb-btn" href="{{ hero_cta_link }}">{{ section.settings.hero_cta_label }}</a>
+        <a class="lb-btn" href="{{ hero_cta_link }}">{{ section.settings.hero_cta_label }}</a>
       </div>
     </div>
   </div>
@@ -43,40 +47,7 @@
     {% if featured_collection != blank and featured_collection.products_count > 0 %}
       <div class="lb-grid {% if section.settings.grid_style == 'masonry' %}lb-grid--masonry{% endif %}">
         {% for product in featured_collection.products limit: products_to_show %}
-          <article class="lb-product-card">
-            <a class="lb-product-card__media" href="{{ product.url }}">
-              {% assign primary_image = product.featured_image %}
-              {% assign secondary_image = product.images[1] %}
-
-              {% if primary_image %}
-                {{ primary_image | image_url: width: 900 | image_tag: class: 'lb-product-card__img lb-product-card__img--primary', loading: 'lazy', widths: '300, 450, 600, 900', sizes: '(max-width: 767px) 46vw, (max-width: 1023px) 30vw, 22vw', alt: product.title }}
-              {% else %}
-                {{ 'product-1' | placeholder_svg_tag: 'lb-product-card__img lb-product-card__img--primary' }}
-              {% endif %}
-
-              {% if secondary_image %}
-                {{ secondary_image | image_url: width: 900 | image_tag: class: 'lb-product-card__img lb-product-card__img--secondary', loading: 'lazy', widths: '300, 450, 600, 900', sizes: '(max-width: 767px) 46vw, (max-width: 1023px) 30vw, 22vw', alt: product.title }}
-              {% endif %}
-            </a>
-
-            <button
-              class="lb-product-card__quick"
-              type="button"
-              data-lb-quick-view
-              data-product-title="{{ product.title | escape }}"
-              data-product-price="{{ product.price | money }}"
-              data-product-image="{{ primary_image | image_url: width: 900 }}"
-              data-product-url="{{ product.url }}"
-              aria-label="Quick view {{ product.title | escape }}"
-            >
-              Quick View
-            </button>
-
-            <div class="lb-product-card__body">
-              <h3 class="lb-product-card__title"><a href="{{ product.url }}">{{ product.title }}</a></h3>
-              <p class="lb-product-card__price">{{ product.price | money }}</p>
-            </div>
-          </article>
+          {% render 'lb-product-card', product: product %}
         {% endfor %}
       </div>
     {% else %}
@@ -101,32 +72,85 @@
     {% if arrivals_collection != blank and arrivals_collection.products_count > 0 %}
       <div class="lb-grid lb-grid--masonry">
         {% for product in arrivals_collection.products limit: section.settings.new_arrivals_to_show %}
-          <article class="lb-product-card">
-            <a class="lb-product-card__media" href="{{ product.url }}">
-              {% assign primary_image = product.featured_image %}
-              {% assign secondary_image = product.images[1] %}
-
-              {% if primary_image %}
-                {{ primary_image | image_url: width: 900 | image_tag: class: 'lb-product-card__img lb-product-card__img--primary', loading: 'lazy', widths: '300, 450, 600, 900', sizes: '(max-width: 767px) 46vw, (max-width: 1023px) 30vw, 22vw', alt: product.title }}
-              {% else %}
-                {{ 'product-2' | placeholder_svg_tag: 'lb-product-card__img lb-product-card__img--primary' }}
-              {% endif %}
-
-              {% if secondary_image %}
-                {{ secondary_image | image_url: width: 900 | image_tag: class: 'lb-product-card__img lb-product-card__img--secondary', loading: 'lazy', widths: '300, 450, 600, 900', sizes: '(max-width: 767px) 46vw, (max-width: 1023px) 30vw, 22vw', alt: product.title }}
-              {% endif %}
-            </a>
-
-            <div class="lb-product-card__body">
-              <h3 class="lb-product-card__title"><a href="{{ product.url }}">{{ product.title }}</a></h3>
-              <p class="lb-product-card__price">{{ product.price | money }}</p>
-            </div>
-          </article>
+          {% render 'lb-product-card', product: product %}
         {% endfor %}
       </div>
     {% else %}
       <p class="lb-text">Assign a collection in "New Arrivals collection" to showcase latest fashion drops.</p>
       <a class="lb-btn" href="{{ routes.all_products_collection_url }}" style="margin-top:0.7rem;">See All New Fashion</a>
+    {% endif %}
+  </div>
+</section>
+
+<section class="lb-home-categories">
+  <div class="lb-container">
+    <div class="lb-related__head">
+      <div>
+        <p class="lb-eyebrow">Shop Section Wise</p>
+        <h2 class="lb-heading" style="margin:0.35rem 0 0; font-size: clamp(1.4rem, 4vw, 2rem);">{{ section.settings.categories_heading }}</h2>
+      </div>
+    </div>
+
+    {% assign per_category = section.settings.category_products_to_show %}
+
+    {% if perfumes_collection != blank %}
+      <div class="lb-category-block">
+        <div class="lb-category-block__head">
+          <h3 class="lb-heading">{{ section.settings.perfumes_heading }}</h3>
+          <a class="lb-btn lb-btn--ghost" href="{{ perfumes_collection.url }}">View All</a>
+        </div>
+        <div class="lb-grid">
+          {% for product in perfumes_collection.products limit: per_category %}
+            {% render 'lb-product-card', product: product %}
+          {% endfor %}
+        </div>
+      </div>
+    {% endif %}
+
+    {% if jewelry_collection != blank %}
+      <div class="lb-category-block">
+        <div class="lb-category-block__head">
+          <h3 class="lb-heading">{{ section.settings.jewelry_heading }}</h3>
+          <a class="lb-btn lb-btn--ghost" href="{{ jewelry_collection.url }}">View All</a>
+        </div>
+        <div class="lb-grid">
+          {% for product in jewelry_collection.products limit: per_category %}
+            {% render 'lb-product-card', product: product %}
+          {% endfor %}
+        </div>
+      </div>
+    {% endif %}
+
+    {% if garments_collection != blank %}
+      <div class="lb-category-block">
+        <div class="lb-category-block__head">
+          <h3 class="lb-heading">{{ section.settings.garments_heading }}</h3>
+          <a class="lb-btn lb-btn--ghost" href="{{ garments_collection.url }}">View All</a>
+        </div>
+        <div class="lb-grid">
+          {% for product in garments_collection.products limit: per_category %}
+            {% render 'lb-product-card', product: product %}
+          {% endfor %}
+        </div>
+      </div>
+    {% endif %}
+
+    {% if lifestyle_collection != blank %}
+      <div class="lb-category-block">
+        <div class="lb-category-block__head">
+          <h3 class="lb-heading">{{ section.settings.lifestyle_heading }}</h3>
+          <a class="lb-btn lb-btn--ghost" href="{{ lifestyle_collection.url }}">View All</a>
+        </div>
+        <div class="lb-grid">
+          {% for product in lifestyle_collection.products limit: per_category %}
+            {% render 'lb-product-card', product: product %}
+          {% endfor %}
+        </div>
+      </div>
+    {% endif %}
+
+    {% if perfumes_collection == blank and jewelry_collection == blank and garments_collection == blank and lifestyle_collection == blank %}
+      <p class="lb-text">Assign at least one category collection to display section-wise products on the homepage.</p>
     {% endif %}
   </div>
 </section>
@@ -214,6 +238,65 @@
       "default": 8
     },
     {
+      "type": "text",
+      "id": "categories_heading",
+      "label": "Section-wise heading",
+      "default": "Discover By Category"
+    },
+    {
+      "type": "collection",
+      "id": "perfumes_collection",
+      "label": "Perfumes collection"
+    },
+    {
+      "type": "text",
+      "id": "perfumes_heading",
+      "label": "Perfumes heading",
+      "default": "Girls Perfumes"
+    },
+    {
+      "type": "collection",
+      "id": "jewelry_collection",
+      "label": "Jewelry collection"
+    },
+    {
+      "type": "text",
+      "id": "jewelry_heading",
+      "label": "Jewelry heading",
+      "default": "Elegant Jewelry"
+    },
+    {
+      "type": "collection",
+      "id": "garments_collection",
+      "label": "Garments collection"
+    },
+    {
+      "type": "text",
+      "id": "garments_heading",
+      "label": "Garments heading",
+      "default": "Fashion Garments"
+    },
+    {
+      "type": "collection",
+      "id": "lifestyle_collection",
+      "label": "Lifestyle collection"
+    },
+    {
+      "type": "text",
+      "id": "lifestyle_heading",
+      "label": "Lifestyle heading",
+      "default": "Lifestyle Essentials"
+    },
+    {
+      "type": "range",
+      "id": "category_products_to_show",
+      "label": "Products per category",
+      "min": 4,
+      "max": 24,
+      "step": 1,
+      "default": 8
+    },
+    {
       "type": "range",
       "id": "products_to_show",
       "label": "Products to show",
@@ -246,6 +329,3 @@
   ]
 }
 {% endschema %}
-
-
-

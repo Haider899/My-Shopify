@@ -1,0 +1,43 @@
+﻿{% assign primary_image = product.featured_image %}
+{% assign secondary_image = product.images[1] %}
+
+<article class="lb-product-card">
+  <a class="lb-product-card__media" href="{{ product.url }}">
+    {% if product.tags contains 'new-arrivals' %}
+      <span class="lb-product-card__badge">New</span>
+    {% endif %}
+
+    {% if primary_image %}
+      {{ primary_image | image_url: width: 900 | image_tag: class: 'lb-product-card__img lb-product-card__img--primary', loading: 'lazy', widths: '300, 450, 600, 900', sizes: '(max-width: 767px) 46vw, (max-width: 1023px) 30vw, 22vw', alt: product.title }}
+    {% else %}
+      {{ 'product-1' | placeholder_svg_tag: 'lb-product-card__img lb-product-card__img--primary' }}
+    {% endif %}
+
+    {% if secondary_image %}
+      {{ secondary_image | image_url: width: 900 | image_tag: class: 'lb-product-card__img lb-product-card__img--secondary', loading: 'lazy', widths: '300, 450, 600, 900', sizes: '(max-width: 767px) 46vw, (max-width: 1023px) 30vw, 22vw', alt: product.title }}
+    {% endif %}
+
+    <div class="lb-product-card__float">
+      <button
+        class="lb-product-card__float-btn"
+        type="button"
+        data-lb-quick-view
+        data-product-title="{{ product.title | escape }}"
+        data-product-price="{{ product.price | money }}"
+        data-product-image="{{ primary_image | image_url: width: 900 }}"
+        data-product-url="{{ product.url }}"
+        aria-label="Quick view {{ product.title | escape }}"
+      >
+        Quick
+      </button>
+      <a class="lb-product-card__float-btn lb-product-card__float-btn--solid" href="{{ product.url }}" aria-label="Shop {{ product.title | escape }}">
+        Shop
+      </a>
+    </div>
+  </a>
+
+  <div class="lb-product-card__body">
+    <h3 class="lb-product-card__title"><a href="{{ product.url }}">{{ product.title }}</a></h3>
+    <p class="lb-product-card__price">{{ product.price | money }}</p>
+  </div>
+</article>

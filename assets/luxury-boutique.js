@@ -256,3 +256,73 @@
     }
   }
 })();
+
+
+/* Enhanced variant handling for product pages */
+(function () {
+  var variantSelect = document.querySelector('[id^="VariantSelect-"]');
+  if (!variantSelect) return;
+
+  function updateProductDisplay(variant) {
+    if (!variant) return;
+
+    // Update price display
+    var priceElement = document.querySelector('[class*="lb-product__price"]');
+    if (priceElement && variant.price) {
+      var locale = document.documentElement.lang || 'en-PK';
+      var currency = (window.Shopify && window.Shopify.currency && window.Shopify.currency.active) || 'PKR';
+      var price = (Number(variant.price) / 100).toFixed(2);
+      try {
+        priceElement.textContent = new Intl.NumberFormat(locale, { style: 'currency', currency: currency, maximumFractionDigits: 2 }).format(Number(price));
+      } catch (err) {
+        priceElement.textContent = currency + ' ' + price;
+      }
+    }
+
+    // Update sticky ATC price
+    var stickyPrice = document.querySelector('[class*="lb-sticky-atc__price"]');
+    if (stickyPrice && variant.price) {
+      var locale = document.documentElement.lang || 'en-PK';
+      var currency = (window.Shopify && window.Shopify.currency && window.Shopify.currency.active) || 'PKR';
+      var price = (Number(variant.price) / 100).toFixed(2);
+      try {
+        stickyPrice.textContent = new Intl.NumberFormat(locale, { style: 'currency', currency: currency, maximumFractionDigits: 2 }).format(Number(price));
+      } catch (err) {
+        stickyPrice.textContent = currency + ' ' + price;
+      }
+    }
+
+    // Update ATC button availability
+    var atcBtn = document.querySelector('[data-lb-main-atc]');
+    if (atcBtn) {
+      if (variant.available) {
+        atcBtn.removeAttribute('disabled');
+        atcBtn.textContent = 'Add to cart';
+      } else {
+        atcBtn.setAttribute('disabled', '');
+        atcBtn.textContent = 'Sold out';
+      }
+    }
+  }
+
+  variantSelect.addEventListener('change', function () {
+    var selectedOption = this.options[this.selectedIndex];
+    if (selectedOption && selectedOption.value) {
+      fetch('/products/' + window.location.pathname.split('/').pop() + '.json')
+        .then(function (response) {
+          return response.json();
+        })
+        .then(function (data) {
+          var variant = data.variants.find(function (v) {
+            return v.id.toString() === selectedOption.value;
+          });
+          if (variant) {
+            updateProductDisplay(variant);
+          }
+        })
+        .catch(function (err) {
+          console.error('Error fetching product data:', err);
+        });
+    }
+  });
+})();
