@@ -25,6 +25,18 @@
         "grid_style": "clean"
       }
     },
+    "trust_strip": {
+      "type": "luxury-trust-strip",
+      "settings": {}
+    },
+    "testimonials": {
+      "type": "luxury-testimonials",
+      "settings": {}
+    },
+    "faq": {
+      "type": "luxury-faq",
+      "settings": {}
+    },
     "footer": {
       "type": "luxury-footer",
       "settings": {
@@ -40,6 +52,9 @@
     "announcement",
     "header",
     "main",
+    "trust_strip",
+    "testimonials",
+    "faq",
     "footer",
     "cart_drawer"
   ]

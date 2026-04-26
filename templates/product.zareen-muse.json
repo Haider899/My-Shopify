@@ -20,6 +20,14 @@
         "related_limit": 4
       }
     },
+    "trust_strip": {
+      "type": "luxury-trust-strip",
+      "settings": {}
+    },
+    "faq": {
+      "type": "luxury-faq",
+      "settings": {}
+    },
     "footer": {
       "type": "luxury-footer",
       "settings": {
@@ -35,6 +43,8 @@
     "announcement",
     "header",
     "main",
+    "trust_strip",
+    "faq",
     "footer",
     "cart_drawer"
   ]

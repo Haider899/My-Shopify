@@ -1,0 +1,48 @@
+﻿<section class="lb-trust-strip">
+  <div class="lb-container lb-trust-strip__grid">
+    {% for block in section.blocks %}
+      <div class="lb-trust-card" {{ block.shopify_attributes }}>
+        <p class="lb-trust-card__title">{{ block.settings.title }}</p>
+        <p class="lb-trust-card__text">{{ block.settings.text }}</p>
+      </div>
+    {% endfor %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Luxury Trust Strip",
+  "max_blocks": 6,
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Trust item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "100% Authentic"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text",
+          "default": "Premium curated products only"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Luxury Trust Strip",
+      "blocks": [
+        { "type": "item", "settings": { "title": "100% Authentic", "text": "Premium curated products only" } },
+        { "type": "item", "settings": { "title": "Fast Delivery", "text": "All across Pakistan" } },
+        { "type": "item", "settings": { "title": "Easy Returns", "text": "7 day exchange policy" } },
+        { "type": "item", "settings": { "title": "Secure Checkout", "text": "Safe payment experience" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

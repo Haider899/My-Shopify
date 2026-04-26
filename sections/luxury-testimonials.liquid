@@ -1,0 +1,71 @@
+﻿<section class="lb-testimonials">
+  <div class="lb-container">
+    <div class="lb-related__head">
+      <div>
+        <p class="lb-eyebrow">Loved By Women</p>
+        <h2 class="lb-heading" style="margin:0.35rem 0 0; font-size: clamp(1.4rem, 4vw, 2rem);">{{ section.settings.heading }}</h2>
+      </div>
+    </div>
+
+    <div class="lb-testimonials__grid">
+      {% for block in section.blocks %}
+        <article class="lb-testimonial" {{ block.shopify_attributes }}>
+          <p class="lb-testimonial__quote">"{{ block.settings.quote }}"</p>
+          <p class="lb-testimonial__author">{{ block.settings.author }}</p>
+          <p class="lb-testimonial__meta">{{ block.settings.meta }}</p>
+        </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Luxury Testimonials",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "What Our Clients Say"
+    }
+  ],
+  "max_blocks": 8,
+  "blocks": [
+    {
+      "type": "testimonial",
+      "name": "Testimonial",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "quote",
+          "label": "Quote",
+          "default": "Absolutely obsessed with the perfume quality and packaging. It feels truly luxe."
+        },
+        {
+          "type": "text",
+          "id": "author",
+          "label": "Author",
+          "default": "Areeba Khan"
+        },
+        {
+          "type": "text",
+          "id": "meta",
+          "label": "Meta",
+          "default": "Lahore"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Luxury Testimonials",
+      "blocks": [
+        { "type": "testimonial" },
+        { "type": "testimonial", "settings": { "quote": "The jewelry pieces look way more expensive than the price. So elegant!", "author": "Minal", "meta": "Karachi" } },
+        { "type": "testimonial", "settings": { "quote": "I got my order fast and everything looked premium. 10/10 experience.", "author": "Sana Ali", "meta": "Islamabad" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -71,6 +71,15 @@
         {% if product.tags.size > 0 %}
           <p class="lb-text" style="margin-top:1rem; font-size:0.86rem;">Tags: {{ product.tags | join: ', ' }}</p>
         {% endif %}
+
+        <div class="lb-product-assurance">
+          <p class="lb-product-assurance__title">{{ section.settings.assurance_heading }}</p>
+          <ul class="lb-product-assurance__list">
+            <li>{{ section.settings.assurance_item_1 }}</li>
+            <li>{{ section.settings.assurance_item_2 }}</li>
+            <li>{{ section.settings.assurance_item_3 }}</li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
@@ -143,6 +152,30 @@
 {
   "name": "Luxury Product Template",
   "settings": [
+    {
+      "type": "text",
+      "id": "assurance_heading",
+      "label": "Assurance heading",
+      "default": "Why Shop With Zareen Muse"
+    },
+    {
+      "type": "text",
+      "id": "assurance_item_1",
+      "label": "Assurance item 1",
+      "default": "100% authentic curated products"
+    },
+    {
+      "type": "text",
+      "id": "assurance_item_2",
+      "label": "Assurance item 2",
+      "default": "Fast delivery across Pakistan"
+    },
+    {
+      "type": "text",
+      "id": "assurance_item_3",
+      "label": "Assurance item 3",
+      "default": "Secure checkout and easy exchange"
+    },
     {
       "type": "range",
       "id": "related_limit",

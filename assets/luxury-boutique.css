@@ -922,3 +922,130 @@
   color: var(--lb-charcoal);
   font-size: 0.92rem;
 }
+
+.lb-trust-strip {
+  padding: 0.8rem 0 0.4rem;
+}
+
+.lb-trust-strip__grid {
+  display: grid;
+  gap: 0.7rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.lb-trust-card {
+  border: 1px solid rgba(31, 35, 40, 0.1);
+  background: linear-gradient(180deg, #fff 0%, #f8f2ea 100%);
+  border-radius: 14px;
+  padding: 0.7rem 0.8rem;
+  box-shadow: 0 8px 18px rgba(31, 35, 40, 0.06);
+}
+
+.lb-trust-card__title {
+  margin: 0;
+  color: var(--lb-charcoal);
+  font-weight: 700;
+  font-size: 0.84rem;
+}
+
+.lb-trust-card__text {
+  margin: 0.25rem 0 0;
+  color: var(--lb-muted);
+  font-size: 0.78rem;
+}
+
+.lb-testimonials,
+.lb-faq {
+  padding: clamp(1rem, 3.2vw, 2.2rem) 0;
+}
+
+.lb-testimonials__grid {
+  display: grid;
+  gap: 0.8rem;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+
+.lb-testimonial {
+  border-radius: 14px;
+  border: 1px solid rgba(31, 35, 40, 0.1);
+  background: #fff;
+  padding: 1rem;
+  box-shadow: 0 8px 18px rgba(31, 35, 40, 0.06);
+}
+
+.lb-testimonial__quote {
+  margin: 0 0 0.7rem;
+  font-size: 0.95rem;
+  color: var(--lb-charcoal);
+}
+
+.lb-testimonial__author {
+  margin: 0;
+  font-size: 0.86rem;
+  font-weight: 700;
+  color: var(--lb-charcoal);
+}
+
+.lb-testimonial__meta {
+  margin: 0.2rem 0 0;
+  font-size: 0.8rem;
+  color: var(--lb-muted);
+}
+
+.lb-faq__list {
+  display: grid;
+  gap: 0.65rem;
+}
+
+.lb-faq__item {
+  border-radius: 12px;
+  border: 1px solid rgba(31, 35, 40, 0.12);
+  background: #fff;
+  padding: 0.75rem 0.9rem;
+}
+
+.lb-faq__item summary {
+  cursor: pointer;
+  list-style: none;
+  font-weight: 600;
+  color: var(--lb-charcoal);
+}
+
+.lb-faq__item .lb-text {
+  margin-top: 0.6rem;
+  font-size: 0.9rem;
+}
+
+.lb-product-assurance {
+  margin-top: 1rem;
+  border: 1px solid rgba(31, 35, 40, 0.12);
+  border-radius: 12px;
+  background: linear-gradient(180deg, #fff 0%, #f9f3eb 100%);
+  padding: 0.85rem;
+}
+
+.lb-product-assurance__title {
+  margin: 0 0 0.5rem;
+  color: var(--lb-charcoal);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.lb-product-assurance__list {
+  margin: 0;
+  padding-left: 1.1rem;
+  color: var(--lb-muted);
+  font-size: 0.84rem;
+  display: grid;
+  gap: 0.3rem;
+}
+
+@media (min-width: 768px) {
+  .lb-trust-strip__grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .lb-testimonials__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
