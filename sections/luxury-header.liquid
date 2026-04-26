@@ -3,6 +3,7 @@
   assign jewelry_menu = linklists[section.settings.jewelry_menu]
   assign garments_menu = linklists[section.settings.garments_menu]
   assign arrivals_menu = linklists[section.settings.arrivals_menu]
+  assign all_products_url = routes.all_products_collection_url
 %}
 
 
@@ -22,16 +23,16 @@
                   {% for link in fragrances_menu.links %}
                     <li><a href="{{ link.url }}">{{ link.title }}</a></li>
                   {% else %}
-                    <li><a href="/collections/all">All Perfumes</a></li>
+                    <li><a href="{{ all_products_url }}">All Perfumes</a></li>
                   {% endfor %}
                 </ul>
               </div>
               <div>
                 <h3 class="lb-mega__title">Curated</h3>
                 <ul class="lb-mega__list">
-                  <li><a href="/collections/all">Bestsellers</a></li>
-                  <li><a href="/collections/all">Premium Collection</a></li>
-                  <li><a href="/collections/all">Evening Luxe</a></li>
+                  <li><a href="{{ all_products_url }}">Bestsellers</a></li>
+                  <li><a href="{{ all_products_url }}">Premium Collection</a></li>
+                  <li><a href="{{ all_products_url }}">Evening Luxe</a></li>
                 </ul>
               </div>
             </div>
@@ -48,18 +49,18 @@
                   {% for link in jewelry_menu.links %}
                     <li><a href="{{ link.url }}">{{ link.title }}</a></li>
                   {% else %}
-                    <li><a href="/collections/all">Necklaces</a></li>
-                    <li><a href="/collections/all">Earrings</a></li>
-                    <li><a href="/collections/all">Bracelets</a></li>
+                    <li><a href="{{ all_products_url }}">Necklaces</a></li>
+                    <li><a href="{{ all_products_url }}">Earrings</a></li>
+                    <li><a href="{{ all_products_url }}">Bracelets</a></li>
                   {% endfor %}
                 </ul>
               </div>
               <div>
                 <h3 class="lb-mega__title">Style Edit</h3>
                 <ul class="lb-mega__list">
-                  <li><a href="/collections/all">Party Edit</a></li>
-                  <li><a href="/collections/all">Daily Glam</a></li>
-                  <li><a href="/collections/all">Gift Picks</a></li>
+                  <li><a href="{{ all_products_url }}">Party Edit</a></li>
+                  <li><a href="{{ all_products_url }}">Daily Glam</a></li>
+                  <li><a href="{{ all_products_url }}">Gift Picks</a></li>
                 </ul>
               </div>
             </div>
@@ -76,18 +77,18 @@
                   {% for link in garments_menu.links %}
                     <li><a href="{{ link.url }}">{{ link.title }}</a></li>
                   {% else %}
-                    <li><a href="/collections/all">Abayas</a></li>
-                    <li><a href="/collections/all">Kurtas</a></li>
-                    <li><a href="/collections/all">Co-ord Sets</a></li>
+                    <li><a href="{{ all_products_url }}">Abayas</a></li>
+                    <li><a href="{{ all_products_url }}">Kurtas</a></li>
+                    <li><a href="{{ all_products_url }}">Co-ord Sets</a></li>
                   {% endfor %}
                 </ul>
               </div>
               <div>
                 <h3 class="lb-mega__title">By Occasion</h3>
                 <ul class="lb-mega__list">
-                  <li><a href="/collections/all">Wedding Guest</a></li>
-                  <li><a href="/collections/all">Office Chic</a></li>
-                  <li><a href="/collections/all">Weekend Luxe</a></li>
+                  <li><a href="{{ all_products_url }}">Wedding Guest</a></li>
+                  <li><a href="{{ all_products_url }}">Office Chic</a></li>
+                  <li><a href="{{ all_products_url }}">Weekend Luxe</a></li>
                 </ul>
               </div>
             </div>
@@ -104,16 +105,16 @@
                   {% for link in arrivals_menu.links %}
                     <li><a href="{{ link.url }}">{{ link.title }}</a></li>
                   {% else %}
-                    <li><a href="/collections/all">New This Week</a></li>
+                    <li><a href="{{ all_products_url }}">New This Week</a></li>
                   {% endfor %}
                 </ul>
               </div>
               <div>
                 <h3 class="lb-mega__title">Trending Now</h3>
                 <ul class="lb-mega__list">
-                  <li><a href="/collections/all">Editors Choice</a></li>
-                  <li><a href="/collections/all">Most Wanted</a></li>
-                  <li><a href="/collections/all">Limited Pieces</a></li>
+                  <li><a href="{{ all_products_url }}">Editors Choice</a></li>
+                  <li><a href="{{ all_products_url }}">Most Wanted</a></li>
+                  <li><a href="{{ all_products_url }}">Limited Pieces</a></li>
                 </ul>
               </div>
             </div>
@@ -174,8 +175,8 @@
           {% for link in garments_menu.links %}
             <li><a href="{{ link.url }}">{{ link.title }}</a></li>
           {% else %}
-            <li><a href="/collections/all">Abayas</a></li>
-            <li><a href="/collections/all">Kurtas</a></li>
+            <li><a href="{{ all_products_url }}">Abayas</a></li>
+            <li><a href="{{ all_products_url }}">Kurtas</a></li>
           {% endfor %}
         </ul>
       </details>
