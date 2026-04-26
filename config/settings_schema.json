@@ -1,9 +1,9 @@
 [
   {
     "name": "theme_info",
-    "theme_name": "Zareen Muse",
+    "theme_name": "Lucent Nu{00B2}",
     "theme_version": "1.0.0",
-    "theme_author": "Zareen Muse Studio",
+    "theme_author": "Lucent Nu{00B2} Studio",
     "theme_documentation_url": "https://help.shopify.com/manual/online-store/themes",
     "theme_support_url": "https://help.shopify.com"
   },
@@ -14,7 +14,7 @@
         "type": "text",
         "id": "brand_name",
         "label": "Brand name",
-        "default": "Zareen Muse"
+        "default": "Lucent Nu{00B2}"
       },
       {
         "type": "image_picker",

@@ -11,7 +11,7 @@
     "header": {
       "type": "luxury-header",
       "settings": {
-        "brand_label": "Zareen Muse"
+        "brand_label": "Lucent Nu{00B2}"
       }
     },
     "main": {
@@ -28,7 +28,7 @@
     "footer": {
       "type": "luxury-footer",
       "settings": {
-        "footer_brand": "Zareen Muse Atelier"
+        "footer_brand": "Lucent Nu{00B2} Atelier"
       }
     },
     "cart_drawer": {

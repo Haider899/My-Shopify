@@ -20,13 +20,13 @@
     "header": {
       "type": "luxury-header",
       "settings": {
-        "brand_label": "Zareen Muse"
+        "brand_label": "Lucent Nu{00B2}"
       }
     },
     "main": {
       "type": "luxury-homepage",
       "settings": {
-        "hero_eyebrow": "Zareen Muse Edit",
+        "hero_eyebrow": "Lucent Nu{00B2} Edit",
         "hero_title": "Curated Elegance for Your Every Moment",
         "hero_text": "Discover premium perfumes, handcrafted jewelry, and elevated lifestyle selections designed for modern women.",
         "hero_cta_label": "Shop the Collection",
@@ -49,7 +49,7 @@
     "footer": {
       "type": "luxury-footer",
       "settings": {
-        "footer_brand": "Zareen Muse Atelier"
+        "footer_brand": "Lucent Nu{00B2} Atelier"
       }
     },
     "cart_drawer": {
