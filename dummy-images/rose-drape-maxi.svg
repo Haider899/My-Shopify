@@ -1,0 +1,13 @@
+﻿<svg xmlns='http://www.w3.org/2000/svg' width='2000' height='2500' viewBox='0 0 2000 2500'>
+  <defs>
+    <linearGradient id='g' x1='0' y1='0' x2='1' y2='1'>
+      <stop offset='0%' stop-color='#f7ece3'/>
+      <stop offset='100%' stop-color='#c39f76'/>
+    </linearGradient>
+  </defs>
+  <rect width='2000' height='2500' fill='url(#g)'/>
+  <rect x='220' y='320' width='1560' height='1860' rx='90' fill='rgba(255,255,255,0.55)'/>
+  <text x='1000' y='1200' text-anchor='middle' font-family='Playfair Display, serif' font-size='110' fill='#24272c'>ZAREEN MUSE</text>
+  <text x='1000' y='1320' text-anchor='middle' font-family='Montserrat, sans-serif' font-size='54' letter-spacing='6' fill='#6f6a64'>FASHION DROP</text>
+  <text x='1000' y='1440' text-anchor='middle' font-family='Montserrat, sans-serif' font-size='48' fill='#5e544c'>Rose Drape Maxi</text>
+</svg>

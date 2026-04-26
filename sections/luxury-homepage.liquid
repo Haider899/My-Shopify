@@ -1,8 +1,8 @@
 ﻿{% liquid
   assign featured_collection = collections[section.settings.collection]
+  assign arrivals_collection = collections[section.settings.new_arrivals_collection]
   assign products_to_show = section.settings.products_to_show
 %}
-
 
 <section class="lb-hero">
   <div class="lb-container">
@@ -81,10 +81,54 @@
   </div>
 </section>
 
+<section class="lb-featured-products lb-new-arrivals">
+  <div class="lb-container">
+    <div class="lb-related__head">
+      <div>
+        <p class="lb-eyebrow">New Fashion</p>
+        <h2 class="lb-heading" style="margin:0.35rem 0 0; font-size: clamp(1.4rem, 4vw, 2rem);">{{ section.settings.new_arrivals_title }}</h2>
+      </div>
+      {% if arrivals_collection != blank %}
+        <a class="lb-btn lb-btn--ghost" href="{{ arrivals_collection.url }}">View New Arrivals</a>
+      {% endif %}
+    </div>
+
+    {% if arrivals_collection != blank and arrivals_collection.products_count > 0 %}
+      <div class="lb-grid lb-grid--masonry">
+        {% for product in arrivals_collection.products limit: section.settings.new_arrivals_to_show %}
+          <article class="lb-product-card">
+            <a class="lb-product-card__media" href="{{ product.url }}">
+              {% assign primary_image = product.featured_image %}
+              {% assign secondary_image = product.images[1] %}
+
+              {% if primary_image %}
+                {{ primary_image | image_url: width: 900 | image_tag: class: 'lb-product-card__img lb-product-card__img--primary', loading: 'lazy', widths: '300, 450, 600, 900', sizes: '(max-width: 767px) 46vw, (max-width: 1023px) 30vw, 22vw', alt: product.title }}
+              {% else %}
+                {{ 'product-2' | placeholder_svg_tag: 'lb-product-card__img lb-product-card__img--primary' }}
+              {% endif %}
+
+              {% if secondary_image %}
+                {{ secondary_image | image_url: width: 900 | image_tag: class: 'lb-product-card__img lb-product-card__img--secondary', loading: 'lazy', widths: '300, 450, 600, 900', sizes: '(max-width: 767px) 46vw, (max-width: 1023px) 30vw, 22vw', alt: product.title }}
+              {% endif %}
+            </a>
+
+            <div class="lb-product-card__body">
+              <h3 class="lb-product-card__title"><a href="{{ product.url }}">{{ product.title }}</a></h3>
+              <p class="lb-product-card__price">{{ product.price | money }}</p>
+            </div>
+          </article>
+        {% endfor %}
+      </div>
+    {% else %}
+      <p class="lb-text">Assign a collection in "New Arrivals collection" to showcase latest fashion drops.</p>
+    {% endif %}
+  </div>
+</section>
+
 <div class="lb-modal" data-lb-quick-modal>
   <div class="lb-modal__overlay" data-lb-modal-overlay></div>
   <div class="lb-modal__dialog" role="dialog" aria-modal="true" aria-label="Quick view product">
-    <button class="lb-modal__close" type="button" data-lb-modal-close aria-label="Close modal">ï¿½</button>
+    <button class="lb-modal__close" type="button" data-lb-modal-close aria-label="Close modal">x</button>
     <div class="lb-modal__body">
       <img src="" alt="" data-lb-qv-image loading="lazy" style="width:100%; border-radius:12px; margin-bottom:0.9rem; aspect-ratio:4/3; object-fit:cover;" />
       <h3 data-lb-qv-title style="margin:0 0 0.45rem; color:var(--lb-charcoal);"></h3>
@@ -144,6 +188,26 @@
       "label": "Featured collection"
     },
     {
+      "type": "text",
+      "id": "new_arrivals_title",
+      "label": "New arrivals section title",
+      "default": "New Arrivals for Her"
+    },
+    {
+      "type": "collection",
+      "id": "new_arrivals_collection",
+      "label": "New arrivals collection"
+    },
+    {
+      "type": "range",
+      "id": "new_arrivals_to_show",
+      "label": "New arrivals to show",
+      "min": 4,
+      "max": 16,
+      "step": 1,
+      "default": 8
+    },
+    {
       "type": "range",
       "id": "products_to_show",
       "label": "Products to show",
@@ -176,6 +240,3 @@
   ]
 }
 {% endschema %}
-
-
-
