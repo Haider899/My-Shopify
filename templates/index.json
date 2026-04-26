@@ -59,21 +59,18 @@
         "grid_style": "clean"
       }
     },
+    "luxury_collection_list_mKExjj": {
+      "type": "luxury-collection-list",
+      "name": "Collection List",
+      "settings": {
+        "eyebrow": "Browse",
+        "heading": "All Collections",
+        "description": "Discover our curated categories of premium products."
+      }
+    },
     "trust_strip": {
       "type": "luxury-trust-strip",
       "settings": {}
-    },
-    "testimonials": {
-      "type": "luxury-testimonials",
-      "settings": {
-        "heading": "What Our Clients Say"
-      }
-    },
-    "faq": {
-      "type": "luxury-faq",
-      "settings": {
-        "heading": "Frequently Asked Questions"
-      }
     },
     "footer": {
       "type": "luxury-footer",
@@ -85,17 +82,67 @@
         "copyright_text": "&copy; 2026 Lucent N² Atelier. All rights reserved."
       }
     },
+    "testimonials": {
+      "type": "luxury-testimonials",
+      "settings": {
+        "heading": "What Our Clients Say"
+      }
+    },
     "cart_drawer": {
       "type": "luxury-cart-drawer",
       "settings": {}
     },
-    "luxury_collection_list_mKExjj": {
+    "faq": {
+      "type": "luxury-faq",
+      "settings": {
+        "heading": "Frequently Asked Questions"
+      }
+    },
+    "luxury_collection_list_FpkFPb": {
       "type": "luxury-collection-list",
       "name": "Collection List",
       "settings": {
         "eyebrow": "Browse",
         "heading": "All Collections",
         "description": "Discover our curated categories of premium products."
+      }
+    },
+    "luxury_testimonials_KgATNh": {
+      "type": "luxury-testimonials",
+      "blocks": {
+        "testimonial_RMdAAA": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "Absolutely obsessed with the perfume quality and packaging. It feels truly luxe.",
+            "author": "Areeba Khan",
+            "meta": "Lahore"
+          }
+        },
+        "testimonial_BrPPgU": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "The jewelry pieces look way more expensive than the price. So elegant!",
+            "author": "Minal",
+            "meta": "Karachi"
+          }
+        },
+        "testimonial_mjBeAr": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "I got my order fast and everything looked premium. 10/10 experience.",
+            "author": "Sana Ali",
+            "meta": "Islamabad"
+          }
+        }
+      },
+      "block_order": [
+        "testimonial_RMdAAA",
+        "testimonial_BrPPgU",
+        "testimonial_mjBeAr"
+      ],
+      "name": "Luxury Testimonials",
+      "settings": {
+        "heading": "What Our Clients Say"
       }
     }
   },
@@ -108,6 +155,8 @@
     "footer",
     "testimonials",
     "cart_drawer",
-    "faq"
+    "faq",
+    "luxury_collection_list_FpkFPb",
+    "luxury_testimonials_KgATNh"
   ]
 }
