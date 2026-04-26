@@ -1,4 +1,4 @@
-{% liquid
+﻿{% liquid
   assign featured_collection = collections[section.settings.collection]
   assign products_to_show = section.settings.products_to_show
 %}
@@ -11,7 +11,7 @@
         {% if section.settings.hero_image != blank %}
           {{ section.settings.hero_image | image_url: width: 1800 | image_tag: class: 'lb-hero__image', loading: 'lazy', widths: '480, 768, 1024, 1440, 1800', sizes: '(max-width: 767px) 92vw, 56vw', alt: section.settings.hero_title }}
         {% else %}
-          {{ 'lifestyle-1' | placeholder_svg_tag: 'lb-hero__image' }}
+          {{ 'zareen-hero-ultra-hd.svg' | asset_url | image_tag: class: 'lb-hero__image', loading: 'lazy', alt: section.settings.hero_title }}
         {% endif %}
       </div>
       <div class="lb-hero__content">
@@ -84,7 +84,7 @@
 <div class="lb-modal" data-lb-quick-modal>
   <div class="lb-modal__overlay" data-lb-modal-overlay></div>
   <div class="lb-modal__dialog" role="dialog" aria-modal="true" aria-label="Quick view product">
-    <button class="lb-modal__close" type="button" data-lb-modal-close aria-label="Close modal">�</button>
+    <button class="lb-modal__close" type="button" data-lb-modal-close aria-label="Close modal">ï¿½</button>
     <div class="lb-modal__body">
       <img src="" alt="" data-lb-qv-image loading="lazy" style="width:100%; border-radius:12px; margin-bottom:0.9rem; aspect-ratio:4/3; object-fit:cover;" />
       <h3 data-lb-qv-title style="margin:0 0 0.45rem; color:var(--lb-charcoal);"></h3>
@@ -176,4 +176,5 @@
   ]
 }
 {% endschema %}
+
 

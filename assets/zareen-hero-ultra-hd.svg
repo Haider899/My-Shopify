@@ -1,0 +1,46 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" width="3840" height="2160" viewBox="0 0 3840 2160" role="img" aria-label="Zareen Muse hero image">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f8efe7"/>
+      <stop offset="45%" stop-color="#efe2d3"/>
+      <stop offset="100%" stop-color="#d9c6ad"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="70%" cy="20%" r="60%">
+      <stop offset="0%" stop-color="#fff8ef" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#fff8ef" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="silhouette" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#3c3532"/>
+      <stop offset="100%" stop-color="#1f2328"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#dec08f"/>
+      <stop offset="100%" stop-color="#b08a4f"/>
+    </linearGradient>
+  </defs>
+  <rect width="3840" height="2160" fill="url(#bg)"/>
+  <rect width="3840" height="2160" fill="url(#glow)"/>
+
+  <ellipse cx="760" cy="1860" rx="780" ry="170" fill="#000" opacity="0.12"/>
+  <ellipse cx="3050" cy="1840" rx="600" ry="130" fill="#000" opacity="0.10"/>
+
+  <path d="M560 1710c80-350 150-640 260-840 92-166 220-280 410-318 88-18 176 0 248 32 100 44 180 128 228 238 70 160 88 352 76 554-13 210-58 382-134 526-17 33-33 63-49 90H560z" fill="url(#silhouette)" opacity="0.9"/>
+  <path d="M1015 598c120-6 224 88 232 208 7 120-84 224-204 233-120 8-226-84-234-204-8-120 85-229 206-237z" fill="#2e2926"/>
+
+  <g transform="translate(2760 930)">
+    <rect x="-210" y="60" width="420" height="620" rx="90" fill="#fdf6ee" stroke="url(#gold)" stroke-width="10"/>
+    <rect x="-100" y="-120" width="200" height="220" rx="40" fill="#f7e7d3" stroke="url(#gold)" stroke-width="10"/>
+    <rect x="-110" y="-190" width="220" height="80" rx="24" fill="#292b30"/>
+    <circle cx="0" cy="360" r="140" fill="#fff" opacity="0.35"/>
+    <text x="0" y="385" text-anchor="middle" font-family="Playfair Display, serif" font-size="72" fill="#2a2624">ZM</text>
+    <text x="0" y="500" text-anchor="middle" font-family="Montserrat, sans-serif" font-size="38" letter-spacing="8" fill="#6f6a64">NOIR MUSE</text>
+  </g>
+
+  <g transform="translate(2300 420)">
+    <path d="M0 0c220 0 410 130 500 330" fill="none" stroke="#fff" stroke-opacity="0.45" stroke-width="4"/>
+    <path d="M30 70c180 8 320 110 380 250" fill="none" stroke="#fff" stroke-opacity="0.3" stroke-width="3"/>
+  </g>
+
+  <text x="210" y="260" font-family="Playfair Display, serif" font-size="96" fill="#2b2c30" opacity="0.88">ZAREEN MUSE</text>
+  <text x="214" y="340" font-family="Montserrat, sans-serif" font-size="34" letter-spacing="10" fill="#86683f">LUXURY BOUTIQUE COLLECTION</text>
+</svg>
