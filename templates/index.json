@@ -21,7 +21,7 @@
     "header": {
       "type": "luxury-header",
       "settings": {
-        "brand_label": "Lucent N²",
+        "brand_label": "Lucent NÂ²",
         "fragrances_menu": "",
         "jewelry_menu": "",
         "garments_menu": "",
@@ -31,7 +31,7 @@
     "main": {
       "type": "luxury-homepage",
       "settings": {
-        "hero_eyebrow": "Lucent N² Edit",
+        "hero_eyebrow": "Lucent NÂ² Edit",
         "hero_title": "Curated Elegance for Your Every Moment",
         "hero_text": "Discover premium perfumes, handcrafted jewelry, and elevated lifestyle selections designed for modern women.",
         "hero_cta_label": "Shop the Collection",
@@ -64,11 +64,11 @@
     "footer": {
       "type": "luxury-footer",
       "settings": {
-        "footer_brand": "Lucent N² Atelier",
+        "footer_brand": "Lucent NÂ² Atelier",
         "footer_text": "Premium perfumes, artisan jewelry, and curated lifestyle objects for modern women.",
         "shop_menu": "",
         "support_menu": "",
-        "copyright_text": "&copy; 2026 Lucent N² Atelier. All rights reserved."
+        "copyright_text": "&copy; 2026 Lucent NÂ² Atelier. All rights reserved."
       }
     },
     "cart_drawer": {

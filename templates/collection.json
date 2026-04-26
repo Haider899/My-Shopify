@@ -11,7 +11,7 @@
     "header": {
       "type": "luxury-header",
       "settings": {
-        "brand_label": "Lucent Nu{00B2}"
+        "brand_label": "Lucent N²"
       }
     },
     "main": {
@@ -28,7 +28,7 @@
     "footer": {
       "type": "luxury-footer",
       "settings": {
-        "footer_brand": "Lucent Nu{00B2} Atelier"
+        "footer_brand": "Lucent N² Atelier"
       }
     },
     "cart_drawer": {

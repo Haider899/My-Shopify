@@ -14,7 +14,7 @@
         "type": "text",
         "id": "brand_name",
         "label": "Brand name",
-        "default": "Lucent Nu{00B2}"
+        "default": "Lucent N²"
       },
       {
         "type": "image_picker",
@@ -88,7 +88,7 @@
         "type": "text",
         "id": "store_contact_email",
         "label": "Support email",
-        "default": "support@zareenmuse.com"
+        "default": "support@lucentn.com"
       },
       {
         "type": "text",
