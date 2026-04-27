@@ -1,5 +1,4 @@
-/*
- * ------------------------------------------------------------
+//-----------------------------------------------------------
  * IMPORTANT: The contents of this file are auto-generated.
  *
  * This file may be updated by the Shopify admin theme editor
@@ -41,18 +40,18 @@
         "hero_cta_label": "Shop the Collection",
         "hero_cta_url": "shopify://collections",
         "grid_title": "Fresh In Store",
-        "collection": "",
+        "collection": "signature-scents",
         "new_arrivals_title": "New Arrivals for Her",
-        "new_arrivals_collection": "",
+        "new_arrivals_collection": "trending-now",
         "new_arrivals_to_show": 8,
         "categories_heading": "Discover By Category",
-        "perfumes_collection": "{{ section.settings.collection }}",
+        "perfumes_collection": "signature-scents",
         "perfumes_heading": "Girls Perfumes",
         "jewelry_collection": "artisanal-jewelry",
         "jewelry_heading": "Elegant Jewelry",
-        "garments_collection": "artisanal-jewelry",
+        "garments_collection": "abaya",
         "garments_heading": "Fashion Garments",
-        "lifestyle_collection": "abaya",
+        "lifestyle_collection": "lifestyle-essentials",
         "lifestyle_heading": "Lifestyle Essentials",
         "category_products_to_show": 8,
         "products_to_show": 8,
@@ -98,70 +97,37 @@
             "author": "Areeba Khan",
             "meta": "Lahore"
           }
-        },
-        "testimonial_BrPPgU": {
-          "type": "testimonial",
-          "settings": {
-            "quote": "The jewelry pieces look way more expensive than the price. So elegant!",
-            "author": "Minal",
-            "meta": "Karachi"
-          }
-        },
-        "testimonial_mjBeAr": {
-          "type": "testimonial",
-          "settings": {
-            "quote": "I got my order fast and everything looked premium. 10/10 experience.",
-            "author": "Sana Ali",
-            "meta": "Islamabad"
-          }
         }
       },
       "block_order": [
-        "testimonial_RMdAAA",
-        "testimonial_BrPPgU",
-        "testimonial_mjBeAr"
+        "testimonial_RMdAAA"
       ],
-      "name": "Luxury Testimonials",
       "settings": {
         "heading": "What Our Clients Say"
       }
     },
-    "luxury_cart_page_Dw8jtn": {
-      "type": "luxury-cart-page",
-      "name": "Cart Page",
-      "settings": {}
-    },
-    "luxury_faq_FxiWUd": {
+    "luxury_faq_Tf8A9R": {
       "type": "luxury-faq",
       "blocks": {
-        "faq_iP7ATW": {
-          "type": "faq",
+        "faq_item_UfAmXp": {
+          "type": "faq_item",
           "settings": {
-            "question": "How long does delivery take in Pakistan?",
-            "answer": "Most orders are delivered within 2-5 business days depending on city."
+            "question": "What is your delivery timeframe?",
+            "answer": "We deliver nationwide across Pakistan within 3-5 business days."
           }
         },
-        "faq_Tctim4": {
-          "type": "faq",
+        "faq_item_GAd7Yq": {
+          "type": "faq_item",
           "settings": {
-            "question": "Do you offer returns or exchanges?",
-            "answer": "Yes, we offer a 7-day exchange policy for eligible products."
-          }
-        },
-        "faq_nck4gE": {
-          "type": "faq",
-          "settings": {
-            "question": "Are your perfumes and jewelry authentic?",
-            "answer": "Yes. Every item in our store is carefully curated and quality-checked before dispatch."
+            "question": "Do you offer exchanges?",
+            "answer": "Yes, we have a 7-day hassle-free exchange policy for all non-fragrance items."
           }
         }
       },
       "block_order": [
-        "faq_iP7ATW",
-        "faq_Tctim4",
-        "faq_nck4gE"
+        "faq_item_UfAmXp",
+        "faq_item_GAd7Yq"
       ],
-      "name": "Luxury FAQ",
       "settings": {
         "heading": "Frequently Asked Questions"
       }
@@ -171,9 +137,9 @@
       "settings": {
         "footer_brand": "Lucent N² Atelier",
         "footer_text": "Premium perfumes, artisan jewelry, and curated lifestyle objects for modern women.",
-        "shop_menu": "",
-        "support_menu": "",
-        "copyright_text": "© 2026 Lucent N² Atelier. All rights reserved."
+        "shop_menu": "main-menu",
+        "support_menu": "footer",
+        "copyright_text": "&copy; 2026 Lucent N² Atelier. All rights reserved."
       }
     }
   },
@@ -183,10 +149,9 @@
     "main",
     "luxury_collection_list_mKExjj",
     "trust_strip",
-    "cart_drawer",
     "luxury_testimonials_KgATNh",
-    "luxury_cart_page_Dw8jtn",
-    "luxury_faq_FxiWUd",
-    "footer"
+    "luxury_faq_Tf8A9R",
+    "footer",
+    "cart_drawer"
   ]
 }
