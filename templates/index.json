@@ -35,9 +35,9 @@
     "main": {
       "type": "luxury-homepage",
       "settings": {
-        "hero_eyebrow": "Lucent N² Edit",
-        "hero_title": "Curated Elegance for Your Every Moment",
-        "hero_text": "Discover premium perfumes, handcrafted jewelry, and elevated lifestyle selections designed for modern women.",
+        "hero_eyebrow": "Welcome to Lucent N²",
+        "hero_title": "The Light of Your Divine Destiny",
+        "hero_text": "Step into a world where luminous radiance meets your divine path. Discover our signature curation of perfumes and artisan jewelry.",
         "hero_cta_label": "Shop the Collection",
         "hero_cta_url": "",
         "grid_title": "Fresh In Store",
